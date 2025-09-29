@@ -95,6 +95,13 @@
   programs.zoxide.enable = true;
   programs.zoxide.enableBashIntegration = true;
 
+  programs.neovim = {
+    enable = true;
+    defaultEditor = true;
+    viAlias = true;
+    vimAlias = true;
+  };
+
   programs.lutris = {
     enable = true;
     extraPackages = with pkgs; [mangohud winetricks gamemode umu-launcher];
