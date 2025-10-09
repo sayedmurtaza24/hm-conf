@@ -11,7 +11,7 @@
     ./rofi-pass.nix
     ./hyprland.nix
     ./bash.nix
-    ./remotegamepad.nix
+    # ./remotegamepad.nix
     # ./caelestia.nix
     # ./noctalia.nix
     ./dms.nix
@@ -54,7 +54,6 @@
 
     # programming languages
     zig
-    clang
     go
 
     # command line tools

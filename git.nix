@@ -3,6 +3,10 @@
     enable = true;
     userName = "sayedmurtaza24";
     userEmail = "sayedmurtazamuttahar@gmail.com";
+      aliases = {
+        co = "checkout";
+        fp = "push --force-push-with-lease";
+      };
     delta = {
       enable = true;
     };
@@ -19,10 +23,6 @@
     settings = {
       git_protocol = "https";
       prompt = "enabled";
-      aliases = {
-        co = "checkout";
-        fp = "push --force-push-with-lease";
-      };
     };
   };
 }
