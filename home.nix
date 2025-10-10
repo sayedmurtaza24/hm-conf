@@ -18,6 +18,7 @@
     # ./noctalia.nix
     ./dms.nix
     ./git.nix
+    ./desktop.nix
   ];
 
   systemd.user.sessionVariables = {
@@ -108,6 +109,7 @@
   services.flatpak.enable = true;
   services.flatpak.packages = [
     { appId = "com.brave.Browser"; origin = "flathub";  }
+    { appId = "com.github.tchx84.Flatseal"; origin = "flathub";  }
   ];
 
   services.kdeconnect = {
