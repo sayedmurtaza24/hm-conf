@@ -73,14 +73,11 @@
 
     # desktop apps
     bitwarden-desktop
-    # brave
     nautilus
     qimgv
     gnome-tweaks
     rofi
     nwg-look
-    webcord
-    gfn-electron
     grim
     rawtherapee
     showtime
@@ -108,6 +105,7 @@
     extraPackages = with pkgs; [mangohud winetricks gamemode umu-launcher];
   };
 
+  services.flatpak.enable = true;
   services.flatpak.packages = [
     { appId = "com.brave.Browser"; origin = "flathub";  }
   ];
