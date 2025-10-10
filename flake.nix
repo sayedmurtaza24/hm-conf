@@ -4,6 +4,8 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
 
+    nix-flatpak.url = "github:gmodena/nix-flatpak"; # unstable branch. Use github:gmodena/nix-flatpak/?ref=<tag> to pin releases.
+
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -40,6 +42,7 @@
           inputs.caelestia-shell.homeManagerModules.default
           inputs.noctalia-shell.homeModules.default
           inputs.dank-material-shell.homeModules.dankMaterialShell.default
+          inputs.nix-flatpak.homeManagerModules.nix-flatpak
         ];
         extraSpecialArgs = { inherit inputs; };
       };

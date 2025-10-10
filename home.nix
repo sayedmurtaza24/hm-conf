@@ -7,6 +7,8 @@
 
 {
   imports = [
+    inputs.nix-flatpak.homeManagerModules.nix-flatpak
+
     ./ghostty.nix
     ./rofi-pass.nix
     ./hyprland.nix
@@ -71,7 +73,7 @@
 
     # desktop apps
     bitwarden-desktop
-    brave
+    # brave
     nautilus
     qimgv
     gnome-tweaks
@@ -105,6 +107,10 @@
     enable = true;
     extraPackages = with pkgs; [mangohud winetricks gamemode umu-launcher];
   };
+
+  services.flatpak.packages = [
+    { appId = "com.brave.Browser"; origin = "flathub";  }
+  ];
 
   services.kdeconnect = {
     enable = true;
