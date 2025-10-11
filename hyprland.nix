@@ -49,7 +49,7 @@
       general = {
         gaps_in = "3";
         gaps_out = 5;
-        border_size = 2;
+        border_size = 1;
         "col.active_border" = "rgba(333333ff)";
         "col.inactive_border" = "rgba(222222ff)";
         resize_on_border = true;
@@ -122,8 +122,8 @@
 
         merge_groups_on_drag = false;
 
-        "col.border_active" = "rgba(629e83ff) rgba(94e2d5ff) 45deg";
-        "col.border_inactive" = "rgba(595959ff)";
+        "col.border_active" = "rgba(333333ff)";
+        "col.border_inactive" = "rgba(222222ff)";
 
         groupbar = {
           text_offset = 2;
