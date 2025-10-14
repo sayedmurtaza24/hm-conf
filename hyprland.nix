@@ -3,7 +3,6 @@
 {
   wayland.windowManager.hyprland = {
     enable = true;
-    plugins = [ pkgs.hyprlandPlugins.hy3 ];
     settings = {
       # Monitor configuration
       monitor = [
