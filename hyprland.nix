@@ -33,16 +33,16 @@
       env = [
         "XCURSOR_THEME,catppuccin-mocha-dark-cursors"
         "XCURSOR_SIZE,20"
-        "GDK_SCALE,2"
-        "QT_SCALE_FACTOR,2"
+        "GDK_SCALE,1"
+        "QT_SCALE_FACTOR,1"
         "ELECTRON_OZONE_PLATFORM_HINT,auto"
         "QT_QPA_PLATFORMTHEME,qt6ct"
       ];
 
       # XWayland configuration
-      # xwayland = {
-      #   force_zero_scaling = true;
-      # };
+      xwayland = {
+        force_zero_scaling = true;
+      };
 
       # General settings
       general = {

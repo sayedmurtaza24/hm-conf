@@ -89,6 +89,7 @@
     playerctl
     sassc
     gtk-engine-murrine
+    xorg.xrdb
   ];
 
   programs.zoxide.enable = true;
