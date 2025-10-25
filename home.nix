@@ -24,6 +24,8 @@
   systemd.user.sessionVariables = {
     PATH = "${config.home.profileDirectory}/bin:/run/current-system/sw/bin";
     EDITOR = "${pkgs.neovim}";
+    QT_QPA_PLATFORMTHEME = "qt6ct";
+    QT_QPA_PLATFORMTHEME_QT6 = "qt6ct";
   };
 
   programs.home-manager.enable = true;
@@ -90,6 +92,7 @@
     sassc
     gtk-engine-murrine
     xorg.xrdb
+    kdePackages.qt6ct
   ];
 
   programs.zoxide.enable = true;
@@ -105,6 +108,14 @@
   programs.lutris = {
     enable = true;
     extraPackages = with pkgs; [mangohud winetricks gamemode umu-launcher];
+  };
+
+  gtk = {
+    enable = true;
+    theme = {
+      name = "adw-gtk3-dark";
+      package = pkgs.adw-gtk3;
+    };
   };
 
   services.flatpak.enable = true;
