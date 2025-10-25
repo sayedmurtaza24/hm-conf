@@ -6,7 +6,6 @@
     enableClipboard = true;
     enableVPN = true;
     enableBrightnessControl = false;
-    enableNightMode = true;
     enableDynamicTheming = true;
     enableAudioWavelength = true;
     enableCalendarEvents = true;
