@@ -25,7 +25,7 @@
 
       cursor-click-to-move = true;
       background-opacity = 0.80;
-      background-blur-radius = 60;
+      background-blur-radius = 0;
       unfocused-split-opacity = 0.7;
 
       scrollback-limit = 10000000;
