@@ -1,15 +1,19 @@
 {
   programs.git = {
     enable = true;
-    userName = "sayedmurtaza24";
-    userEmail = "sayedmurtazamuttahar@gmail.com";
-      aliases = {
+    settings = {
+      user.name = "sayedmurtaza24";
+      user.email = "sayedmurtazamuttahar@gmail.com";
+      alias = {
         co = "checkout";
         fp = "push --force-push-with-lease";
       };
-    delta = {
-      enable = true;
     };
+  };
+
+  programs.delta = {
+    enable = true;
+    enableGitIntegration = true;
   };
 
   programs.gh = {
