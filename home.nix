@@ -129,6 +129,11 @@
     indicator = true;
   };
 
+  services.vicinae = {
+      enable = true;
+      autoStart = true;
+  };
+
   services.dunst.enable = true;
   services.cliphist.enable = true;
   services.ollama.enable = true;

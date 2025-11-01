@@ -15,6 +15,8 @@
       "$mainMod" = "SUPER";
       "$windowManageMod" = "ALT";
 
+      "$menu" = "vicinae open";
+
       # Autostart
       exec-once = [
         "swaybg --mode fill --image ~/.config/hypr/background.jpg"
@@ -292,6 +294,8 @@
         "animation popin 97%, rofi"
         "dimaround, rofi"
         "ignorealpha 0.1, rofi"
+        "blur,vicinae"
+        "ignorealpha 0, vicinae"
       ];
 
       # Workspace configuration
