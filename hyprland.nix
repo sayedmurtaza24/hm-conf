@@ -15,7 +15,7 @@
       "$mainMod" = "SUPER";
       "$windowManageMod" = "ALT";
 
-      "$menu" = "vicinae open";
+      # "$menu" = "vicinae open";
 
       # Autostart
       exec-once = [

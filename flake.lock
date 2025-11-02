@@ -380,8 +380,7 @@
         "nix-flatpak": "nix-flatpak",
         "nixpkgs": "nixpkgs",
         "noctalia-shell": "noctalia-shell",
-        "quickshell": "quickshell_2",
-        "vicinae": "vicinae"
+        "quickshell": "quickshell_2"
       }
     },
     "systems": {
@@ -441,30 +440,6 @@
       "original": {
         "owner": "nix-systems",
         "repo": "default",
-        "type": "github"
-      }
-    },
-    "vicinae": {
-      "inputs": {
-        "flake-utils": [
-          "flake-utils"
-        ],
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1761946267,
-        "narHash": "sha256-kZAef+/eQWHKiFvYw8fNxAFRgpX8Ms/+G0JFg5qP1sQ=",
-        "owner": "vicinaehq",
-        "repo": "vicinae",
-        "rev": "748480762e71fc19548f81d800f8d17498e69632",
-        "type": "github"
-      },
-      "original": {
-        "owner": "vicinaehq",
-        "ref": "v0.16.0",
-        "repo": "vicinae",
         "type": "github"
       }
     }

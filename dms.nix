@@ -11,7 +11,7 @@
     enableCalendarEvents = true;
   };
 
-  # wayland.windowManager.hyprland.settings = {
-  #   "$menu" = "dms ipc call spotlight toggle";
-  # };
+  wayland.windowManager.hyprland.settings = {
+    "$menu" = "dms ipc call spotlight toggle";
+  };
 }

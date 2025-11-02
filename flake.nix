@@ -44,11 +44,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    vicinae = {
-      url = "github:vicinaehq/vicinae/v0.16.0";
-      inputs.nixpkgs.follows = "nixpkgs";
-      inputs.flake-utils.follows = "flake-utils";
-    };
+    # vicinae = {
+    #   url = "github:vicinaehq/vicinae/v0.16.0";
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    #   inputs.flake-utils.follows = "flake-utils";
+    # };
   };
 
   outputs = { nixpkgs, home-manager, ... }@inputs: {
@@ -61,7 +61,7 @@
           inputs.noctalia-shell.homeModules.default
           inputs.dank-material-shell.homeModules.dankMaterialShell.default
           inputs.nix-flatpak.homeManagerModules.nix-flatpak
-          inputs.vicinae.homeManagerModules.default
+          # inputs.vicinae.homeManagerModules.default
         ];
         extraSpecialArgs = { inherit inputs; };
       };
