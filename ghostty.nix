@@ -40,8 +40,21 @@
       window-inherit-working-directory = true;
       window-inherit-font-size = false;
       window-decoration = true;
+      window-show-tab-bar = "never";
+
+      focus-follows-mouse = true;
 
       copy-on-select = "clipboard";
+
+      keybind = [
+        "ctrl+\\=new_split:right"
+        "ctrl+-=new_split:down"
+        "ctrl+shift+k=goto_split:up"
+        "ctrl+shift+j=goto_split:down"
+        "ctrl+shift+h=goto_split:left"
+        "ctrl+shift+l=goto_split:right"
+        "ctrl+f=toggle_split_zoom"
+      ];
     };
   };
 }
