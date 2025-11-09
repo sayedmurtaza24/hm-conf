@@ -1,7 +1,9 @@
 {
   programs.dankMaterialShell = {
     enable = true;
-    enableSystemd = true;
+    systemd = {
+      enable = true;
+    };
     enableSystemMonitoring = true;
     enableClipboard = true;
     enableVPN = true;

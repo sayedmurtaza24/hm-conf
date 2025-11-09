@@ -1,5 +1,6 @@
 {
   config,
+  lib,
   pkgs,
   inputs,
   ...
@@ -117,6 +118,9 @@
       package = pkgs.adw-gtk3;
     };
   };
+
+  home.file."${config.xdg.configHome}/gtk-4.0/settings.ini".force = lib.mkForce true;
+  home.file."${config.xdg.configHome}/gtk-3.0/settings.ini".force = lib.mkForce true;
 
   services.flatpak.enable = true;
   services.flatpak.packages = [
