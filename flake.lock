@@ -49,17 +49,16 @@
     "dank-material-shell": {
       "inputs": {
         "dgop": "dgop",
-        "dms-cli": "dms-cli",
         "nixpkgs": [
           "nixpkgs"
         ]
       },
       "locked": {
-        "lastModified": 1762719224,
-        "narHash": "sha256-yg5Ev4U22VouwfQPbYD4qR/g85esfCDMQgaSSiUFcXU=",
+        "lastModified": 1763180774,
+        "narHash": "sha256-0pAfeIDseUKd22XVrH6V9qXD8kD1yxJHG+hiD4/xIVA=",
         "owner": "AvengeMedia",
         "repo": "DankMaterialShell",
-        "rev": "b5c49573e566e42c34e5cd4e86dee76fdb7afb2f",
+        "rev": "217037c2ae011d131a0a7ecefd23b6ad99ac4f1b",
         "type": "github"
       },
       "original": {
@@ -96,11 +95,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1762562974,
-        "narHash": "sha256-JqOEEI+rtSLTz4zWT2UEKWXCJfYSXLi7ELV98iffjTA=",
+        "lastModified": 1762835999,
+        "narHash": "sha256-UykYGrGFOFTmDpKTLNxj1wvd1gbDG4TkqLNSbV0TYwk=",
         "owner": "AvengeMedia",
         "repo": "dgop",
-        "rev": "ec6b4dadb29b290159deea80a02dfc59bbb75860",
+        "rev": "799301991cd5dcea9b64245f9d500dcc76615653",
         "type": "github"
       },
       "original": {
@@ -112,36 +111,15 @@
     "dms-cli": {
       "inputs": {
         "nixpkgs": [
-          "dank-material-shell",
           "nixpkgs"
         ]
       },
       "locked": {
-        "lastModified": 1762491516,
-        "narHash": "sha256-oGLH5Gje/p2Hc1kO3m8P5eAZ7JldBI30EmwzEET4cNU=",
+        "lastModified": 1763078370,
+        "narHash": "sha256-wsYqJlLdRSlJpRE0tIuuPMU6aOyhMdV237rEG/enUxY=",
         "owner": "AvengeMedia",
         "repo": "danklinux",
-        "rev": "050cf28a2963a7698ed4759736fe5fe77eee7cc2",
-        "type": "github"
-      },
-      "original": {
-        "owner": "AvengeMedia",
-        "repo": "danklinux",
-        "type": "github"
-      }
-    },
-    "dms-cli_2": {
-      "inputs": {
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1762624287,
-        "narHash": "sha256-oD1oSE501Yx3SKRRot2IdLPdDIwwpmzrdOtquCjj/vw=",
-        "owner": "AvengeMedia",
-        "repo": "danklinux",
-        "rev": "f575a7d3a388a4911aff8956844b487c2436c3f5",
+        "rev": "7a083a0d6d087d41d0bc5077d03e662e1417ce3c",
         "type": "github"
       },
       "original": {
@@ -175,11 +153,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1761081701,
-        "narHash": "sha256-IwpfaKg5c/WWQiy8b5QGaVPMvoEQ2J6kpwRFdpVpBNQ=",
+        "lastModified": 1763198244,
+        "narHash": "sha256-oLugbe2pJv39BjWg7kAljn6vUxjVr/ArkITDX8fFd2Y=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "9b4a2a7c4fbd75b422f00794af02d6edb4d9d315",
+        "rev": "c3bc79be5ee97455262c6c677bbf065eed07948c",
         "type": "github"
       },
       "original": {
@@ -205,11 +183,11 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1762596750,
-        "narHash": "sha256-rXXuz51Bq7DHBlfIjN7jO8Bu3du5TV+3DSADBX7/9YQ=",
+        "lastModified": 1762977756,
+        "narHash": "sha256-4PqRErxfe+2toFJFgcRKZ0UI9NSIOJa+7RXVtBhy4KE=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "b6a8526db03f735b89dd5ff348f53f752e7ddc8e",
+        "rev": "c5ae371f1a6a7fd27823bc500d9390b38c05fa55",
         "type": "github"
       },
       "original": {
@@ -271,11 +249,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1761897390,
-        "narHash": "sha256-er4gYrIoThYLjlsOMTysoRfn67d1Gci+ZpqDrtQxrA0=",
+        "lastModified": 1763202718,
+        "narHash": "sha256-EoVPa0OM7yJ0g47VTkD5yVn6MUcLJT0YsVASTb/OZuI=",
         "owner": "outfoxxed",
         "repo": "quickshell",
-        "rev": "fc704e6b5d445899a1565955268c91942a4f263f",
+        "rev": "0a36e3ed40bf2de41b76ac363bc1f98820473786",
         "type": "github"
       },
       "original": {
@@ -289,7 +267,7 @@
         "caelestia-shell": "caelestia-shell",
         "dank-material-shell": "dank-material-shell",
         "dgop": "dgop_2",
-        "dms-cli": "dms-cli_2",
+        "dms-cli": "dms-cli",
         "flake-utils": "flake-utils",
         "home-manager": "home-manager",
         "nix-flatpak": "nix-flatpak",
