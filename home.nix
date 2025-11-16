@@ -121,6 +121,7 @@
 
   home.file."${config.xdg.configHome}/gtk-4.0/settings.ini".force = lib.mkForce true;
   home.file."${config.xdg.configHome}/gtk-3.0/settings.ini".force = lib.mkForce true;
+  home.file."${config.xdg.configHome}/gtk-4.0/gtk.css".force = lib.mkForce true;
 
   services.flatpak.enable = true;
   services.flatpak.packages = [

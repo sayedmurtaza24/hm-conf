@@ -27,7 +27,7 @@
       set -o vi
     '';
     shellAliases = {
-      conf = "sudo -E nvim -c 'cd /etc/nixos/' -c ':Telescope find_files theme=get_ivy'";
+      conf = "sudo -E nvim -c 'cd /etc/nixos/' -c ':lua Snacks.picker.smart()'";
       lgit = "lazygit";
       nrs = "sudo nixos-rebuild switch";
       hms = "home-manager switch";
