@@ -223,8 +223,9 @@
         "$windowManageMod CTRL, j, movewindoworgroup, d"
 
         # Window management
-        "$windowManageMod, V, togglefloating"
-        "$windowManageMod, F, fullscreen, 1"
+        "$windowManageMod, v, togglefloating"
+        "$windowManageMod, f, fullscreen, 1"
+        "$windowManageMod, b, pin, active"
 
         # Special workspace (scratchpad)
         "$windowManageMod, S, togglespecialworkspace, magic"
