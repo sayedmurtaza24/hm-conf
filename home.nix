@@ -25,8 +25,8 @@
   systemd.user.sessionVariables = {
     PATH = "${config.home.profileDirectory}/bin:/run/current-system/sw/bin";
     EDITOR = "${pkgs.neovim}";
-    QT_QPA_PLATFORMTHEME = "qt6ct";
     QT_QPA_PLATFORMTHEME_QT6 = "qt6ct";
+    QT_STYLE_OVERRIDE = "Adwaita-Dark";
   };
 
   programs.home-manager.enable = true;
@@ -111,11 +111,36 @@
     extraPackages = with pkgs; [mangohud winetricks gamemode umu-launcher];
   };
 
+  dconf.settings = {
+    "org/gnome/desktop/interface" = {
+      color-scheme = "prefer-dark";
+    };
+  };
+
   gtk = {
     enable = true;
     theme = {
       name = "adw-gtk3-dark";
       package = pkgs.adw-gtk3;
+    };
+    gtk3.extraConfig = {
+      Settings = ''
+        gtk-application-prefer-dark-theme=1
+      '';
+    };
+    gtk4.extraConfig = {
+      Settings = ''
+        gtk-application-prefer-dark-theme=1
+      '';
+    };
+  };
+
+  qt = {
+    enable = true;
+    platformTheme.name = "qtct";
+    style = {
+      name = "Adwaita-Dark";
+      package = pkgs.adwaita-qt;
     };
   };
 
@@ -128,6 +153,7 @@
     { appId = "com.brave.Browser"; origin = "flathub";  }
     { appId = "com.github.tchx84.Flatseal"; origin = "flathub";  }
     { appId = "app.zen_browser.zen"; origin = "flathub";  }
+    { appId = "net.nokyan.Resources"; origin = "flathub"; }
   ];
 
   services.kdeconnect = {
