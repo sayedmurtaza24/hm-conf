@@ -74,6 +74,7 @@
     bitwarden-cli
     bluetui
     impala
+    btop
 
     # desktop apps
     bitwarden-desktop
