@@ -127,6 +127,7 @@
   services.flatpak.packages = [
     { appId = "com.brave.Browser"; origin = "flathub";  }
     { appId = "com.github.tchx84.Flatseal"; origin = "flathub";  }
+    { appId = "app.zen_browser.zen"; origin = "flathub";  }
   ];
 
   services.kdeconnect = {
