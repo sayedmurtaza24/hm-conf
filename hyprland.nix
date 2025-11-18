@@ -26,10 +26,10 @@
       #   full_cm_proto = true;
       # };
 
-      exec = [
-        "gsettings set org.gnome.desktop.interface color-scheme \"prefer-dark\""
-        "gsettings set org.gnome.desktop.interface gtk-theme \"adw-gtk3\""
-      ];
+      # exec = [
+      #   "gsettings set org.gnome.desktop.interface color-scheme \"prefer-dark\""
+      #   "gsettings set org.gnome.desktop.interface gtk-theme \"adw-gtk3\""
+      # ];
 
       # Environment variables
       env = [
