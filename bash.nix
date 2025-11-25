@@ -5,6 +5,21 @@
     historyControl = ["erasedups" "ignoredups" "ignorespace"];
     shellOptions = ["histappend" "cmdhist" "autocd" "cdspell"];
     bashrcExtra = ''
+      export LESS='-R'
+      export GROFF_NO_SGR=1
+
+      man() {
+          env \
+          LESS_TERMCAP_mb=$(printf "\e[1;31m") \
+          LESS_TERMCAP_md=$(printf "\e[1;36m") \
+          LESS_TERMCAP_me=$(printf "\e[0m") \
+          LESS_TERMCAP_se=$(printf "\e[0m") \
+          LESS_TERMCAP_so=$(printf "\e[1;44;37m") \
+          LESS_TERMCAP_ue=$(printf "\e[0m") \
+          LESS_TERMCAP_us=$(printf "\e[1;32m") \
+          man "$@"
+      }
+
       # Enable history search with up/down arrows
       bind -m vi-insert '"\C-p": history-search-backward'
       bind -m vi-insert '"\C-n": history-search-forward'
