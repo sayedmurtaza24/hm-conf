@@ -2,6 +2,7 @@
   programs.ghostty = {
     enable = true;
     enableZshIntegration = true;
+    systemd.enable = true;
 
     settings = {
       font-family = "Operator Mono";
