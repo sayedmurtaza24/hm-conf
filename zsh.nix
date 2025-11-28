@@ -23,6 +23,7 @@
 
     initContent = let
     	earlyInit = lib.mkOrder 500 ''
+          ZSH_AUTOSUGGEST_MANUAL_REBIND=1
           ZIM_HOME=${config.home.homeDirectory}/.zim
           ZIM_CONFIG_FILE=${config.home.homeDirectory}/zimrc
           if [[ ! -e ''${ZIM_HOME}/zimfw.zsh ]]; then
@@ -39,7 +40,7 @@
 
           man() {
               env \
-	      MANPAGER=less \
+	            MANPAGER=less \
               LESS_TERMCAP_mb=$(printf "\e[1;31m") \
               LESS_TERMCAP_md=$(printf "\e[1;36m") \
               LESS_TERMCAP_me=$(printf "\e[0m") \
@@ -49,9 +50,6 @@
               LESS_TERMCAP_us=$(printf "\e[1;32m") \
               man "$@"
           }
-
-          # Enable vim mode
-          set -o vi
       ''; in lib.mkMerge [ earlyInit normalConfig ];
   };
 

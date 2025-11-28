@@ -19,7 +19,8 @@
 
       font-size = 14;
 
-      theme = "Kanagawa Dragon";
+      theme = "Kanagawabones";
+      background = "#141416";
       minimum-contrast = 1;
       cursor-style = "block";
 
