@@ -1,53 +1,58 @@
 {
+  config,
   pkgs,
+  lib,
   ...
 }:
 {
   programs.zsh = {
     enable = true;
-    enableCompletion = true;
-    autocd = true;
-    autosuggestion = {
-        enable = true;
-	# highlight = true;
-	strategy = [ "history" "completion" ];
-    };
-    defaultKeymap = "viins";
-    history = {
-	findNoDups = true;
-	ignoreAllDups = true;
-        ignoreSpace = true;
-        size = 50000;
-    };
-    historySubstringSearch = {
-    	enable = true;
-    };
-    initContent = ''
-      export LESS='-R'
-      export GROFF_NO_SGR=1
+    enableCompletion = false;
+    history.ignoreDups = false;
+    history.ignoreSpace = false;
+    history.share = false;
 
-      man() {
-          env \
-          LESS_TERMCAP_mb=$(printf "\e[1;31m") \
-          LESS_TERMCAP_md=$(printf "\e[1;36m") \
-          LESS_TERMCAP_me=$(printf "\e[0m") \
-          LESS_TERMCAP_se=$(printf "\e[0m") \
-          LESS_TERMCAP_so=$(printf "\e[1;44;37m") \
-          LESS_TERMCAP_ue=$(printf "\e[0m") \
-          LESS_TERMCAP_us=$(printf "\e[1;32m") \
-          man "$@"
-      }
+    shellAliases = {
+       conf = "sudo -E nvim -c 'cd /etc/nixos/' -c ':lua Snacks.picker.smart()'";
+       lgit = "lazygit";
+       nrs  = "sudo nixos-rebuild switch";
+       hms  = "home-manager switch";
+       hc   = "cd ~/.config/home-manager && nvim";
+       cd   = "z";
+    };
 
-      # Enable vim mode
-      set -o vi
+    initContent = let
+    	earlyInit = lib.mkOrder 500 ''
+          ZIM_HOME=${config.home.homeDirectory}/.zim
+          ZIM_CONFIG_FILE=${config.home.homeDirectory}/zimrc
+          if [[ ! -e ''${ZIM_HOME}/zimfw.zsh ]]; then
+            curl -fsSL --create-dirs -o ''${ZIM_HOME}/zimfw.zsh \
+              https://github.com/zimfw/zimfw/releases/latest/download/zimfw.zsh
+          fi
+          if [[ ! ''${ZIM_HOME}/init.zsh -nt ''${ZIM_CONFIG_FILE} ]]; then
+            source ''${ZIM_HOME}/zimfw.zsh init
+          fi
+          source ''${ZIM_HOME}/init.zsh
+      '';
+        normalConfig = lib.mkOrder 1000 ''
+          export LESS='-R' export GROFF_NO_SGR=1
 
-      alias conf="sudo -E nvim -c 'cd /etc/nixos/' -c ':lua Snacks.picker.smart()'";
-      alias lgit="lazygit";
-      alias nrs="sudo nixos-rebuild switch";
-      alias hms="home-manager switch";
-      alias hc="cd ~/.config/home-manager && nvim";
-      alias cd="z";
-    '';
+          man() {
+              env \
+	      MANPAGER=less \
+              LESS_TERMCAP_mb=$(printf "\e[1;31m") \
+              LESS_TERMCAP_md=$(printf "\e[1;36m") \
+              LESS_TERMCAP_me=$(printf "\e[0m") \
+              LESS_TERMCAP_se=$(printf "\e[0m") \
+              LESS_TERMCAP_so=$(printf "\e[1;44;37m") \
+              LESS_TERMCAP_ue=$(printf "\e[0m") \
+              LESS_TERMCAP_us=$(printf "\e[1;32m") \
+              man "$@"
+          }
+
+          # Enable vim mode
+          set -o vi
+      ''; in lib.mkMerge [ earlyInit normalConfig ];
   };
 
   home.sessionVariables = {
