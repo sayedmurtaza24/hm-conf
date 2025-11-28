@@ -3,7 +3,7 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-    nix-flatpak.url = "github:gmodena/nix-flatpak"; # unstable branch. Use github:gmodena/nix-flatpak/?ref=<tag> to pin releases.
+    nix-flatpak.url = "github:gmodena/nix-flatpak";
 
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -21,7 +21,7 @@
     };
 
     dank-material-shell = {
-      url = "github:AvengeMedia/DankMaterialShell";
+      url = "github:AvengeMedia/DankMaterialShell?ref=v0.6.2";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
