@@ -23,9 +23,10 @@
 
     initContent = let
     	earlyInit = lib.mkOrder 500 ''
+          unset _comps
           ZSH_AUTOSUGGEST_MANUAL_REBIND=1
-          ZIM_HOME=${config.home.homeDirectory}/.zim
-          ZIM_CONFIG_FILE=${config.home.homeDirectory}/zimrc
+          ZIM_HOME=${config.xdg.configHome}/zim/
+          ZIM_CONFIG_FILE=${config.xdg.configHome}/zim/.zimrc
           if [[ ! -e ''${ZIM_HOME}/zimfw.zsh ]]; then
             curl -fsSL --create-dirs -o ''${ZIM_HOME}/zimfw.zsh \
               https://github.com/zimfw/zimfw/releases/latest/download/zimfw.zsh
