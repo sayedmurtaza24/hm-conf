@@ -13,7 +13,7 @@
     ./ghostty.nix
     ./rofi-pass.nix
     ./hyprland.nix
-    ./bash.nix
+    ./zsh.nix
     # ./remotegamepad.nix
     # ./caelestia.nix
     # ./noctalia.nix
