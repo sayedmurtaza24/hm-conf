@@ -75,6 +75,7 @@
     bluetui
     impala
     btop
+    libnotify
 
     # desktop apps
     bitwarden-desktop
@@ -163,7 +164,6 @@
 
 
   services.podman.enable = true;
-  services.dunst.enable = true;
   services.cliphist.enable = true;
   services.ollama.enable = true;
 }
