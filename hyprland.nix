@@ -14,6 +14,8 @@
       "$fileManager" = "nautilus";
       "$mainMod" = "SUPER";
       "$windowManageMod" = "ALT";
+      "$blur_layer" = "dms:.*";
+      # (color-picker|clipboard|spotlight|settings|bar|dash|process-list-popout|notification-center-popout|app-launcher|control-center|popout|osd|notification-popup)
 
       # "$menu" = "vicinae open";
 
@@ -69,6 +71,9 @@
 
         shadow = {
           enabled = true;
+          range = 20;
+          render_power = 2;
+          color = "rgba(00000055)";
         };
 
         blur = {
@@ -77,6 +82,11 @@
           passes = 3;
           xray = false;
           vibrancy = "0.5";
+          ignore_opacity = true;
+          new_optimizations = true;
+          noise = "0.02";
+          contrast = "1.1";
+          popups = true;
         };
       };
 
@@ -168,8 +178,8 @@
       bind = [
         # System controls
         "CTRL SHIFT, Q, exec, playerctl pause && hyprlock"
-        "SUPER SHIFT, 4, exec, hyprshot -m region -o $HOME/ScreenShots"
-        "SUPER SHIFT, 5, exec, hyprshot -m output -o $HOME/ScreenShots"
+        "SUPER SHIFT, 4, exec, dms screenshot"
+        "SUPER SHIFT, 5, exec, dms screenshot full"
 
         # Application launchers
         "$mainMod, T, exec, $terminal"
@@ -285,18 +295,17 @@
         "size 900 700, title:Bluetui"
         "stayfocused, title:Bluetui"
         "dimaround 1, title:Bluetui"
+
+        # dms widgets
+        "float, class:^(org.quickshell)$"
       ];
 
       # Layer rules
       layerrule = [
-        "blur, waybar"
-        "xray 1, waybar"
-        "blur, rofi"
-        "animation popin 97%, rofi"
-        "dimaround, rofi"
-        "ignorealpha 0.1, rofi"
-        "blur,vicinae"
-        "ignorealpha 0, vicinae"
+        "blur, dms:"
+        "blur, $blur_layer"
+        "ignorealpha 0, $blur_layer"
+        "noanim, ^(dms)$"
       ];
 
       # Workspace configuration
