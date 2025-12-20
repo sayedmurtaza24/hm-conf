@@ -302,7 +302,8 @@
 
       # Layer rules
       layerrule = [
-        "blur, dms:"
+        "blur, rofi"
+        "ignorealpha 0, rofi"
         "blur, $blur_layer"
         "ignorealpha 0, $blur_layer"
         "noanim, ^(dms)$"
