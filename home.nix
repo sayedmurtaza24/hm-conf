@@ -26,7 +26,7 @@
     PATH = "${config.home.profileDirectory}/bin:/run/current-system/sw/bin";
     EDITOR = "${pkgs.neovim}";
     QT_QPA_PLATFORMTHEME_QT6 = "qt6ct";
-    QT_STYLE_OVERRIDE = "Adwaita-Dark";
+    QT_STYLE_OVERRIDE = "Adwaita-dark";
   };
 
   programs.home-manager.enable = true;
@@ -96,6 +96,9 @@
     gtk-engine-murrine
     xorg.xrdb
     kdePackages.qt6ct
+
+    xdg-desktop-portal-gtk
+    xdg-desktop-portal-hyprland
   ];
 
   programs.zoxide.enable = true;
@@ -124,13 +127,19 @@
       name = "adw-gtk3-dark";
       package = pkgs.adw-gtk3;
     };
+    gtk3.extraCss = ''
+      @import url("${config.xdg.configHome}/gtk-4.0/dank-colors.css");
+    '';
+    gtk4.extraCss = ''
+      @import url("${config.xdg.configHome}/gtk-4.0/dank-colors.css");
+    '';
   };
 
   qt = {
     enable = true;
     platformTheme.name = "qtct";
     style = {
-      name = "Adwaita-Dark";
+      name = "Adwaita-dark";
       package = pkgs.adwaita-qt;
     };
   };
@@ -138,6 +147,7 @@
   home.file."${config.xdg.configHome}/gtk-4.0/settings.ini".force = lib.mkForce true;
   home.file."${config.xdg.configHome}/gtk-3.0/settings.ini".force = lib.mkForce true;
   home.file."${config.xdg.configHome}/gtk-4.0/gtk.css".force = lib.mkForce true;
+  home.file."${config.xdg.configHome}/gtk-3.0/gtk.css".force = lib.mkForce true;
 
   services.flatpak.enable = true;
   services.flatpak.packages = [
