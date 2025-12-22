@@ -1,4 +1,4 @@
-{
+{ config, ... }:{
   programs.ghostty = {
     enable = true;
     enableZshIntegration = true;
@@ -21,6 +21,7 @@
       font-size = 14;
 
       theme = "Kanagawabones";
+      # config-file = "${config.xdg.configHome}/ghostty/config-dankcolors";
       background = "#141416";
       minimum-contrast = 1;
       cursor-style = "block";
