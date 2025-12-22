@@ -92,11 +92,11 @@
     # extra
     gnome-themes-extra
     playerctl
-    sassc
     gtk-engine-murrine
     xorg.xrdb
     kdePackages.qt6ct
 
+    # needed for theming
     xdg-desktop-portal-gtk
     xdg-desktop-portal-hyprland
   ];
