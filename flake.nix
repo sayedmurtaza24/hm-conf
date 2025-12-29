@@ -21,7 +21,7 @@
     };
 
     dank-material-shell = {
-      url = "github:AvengeMedia/DankMaterialShell?ref=v1.0.3";
+      url = "github:AvengeMedia/DankMaterialShell";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
@@ -32,7 +32,7 @@
         pkgs = import nixpkgs { system = "x86_64-linux"; config.allowUnfree = true; };
         modules = [
           ./home.nix
-          inputs.dank-material-shell.homeModules.dankMaterialShell.default
+          inputs.dank-material-shell.homeModules.dank-material-shell
           inputs.nix-flatpak.homeManagerModules.nix-flatpak
         ];
         extraSpecialArgs = { inherit inputs; };
