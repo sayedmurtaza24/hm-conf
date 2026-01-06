@@ -307,6 +307,9 @@
         "blur, $blur_layer"
         "ignorealpha 0, $blur_layer"
         "noanim, ^(dms)$"
+        "blur, noctalia-background-.*$"
+        "ignorealpha 0.5, noctalia-background-.*$"
+        "blurpopups, noctalia-background-.*$"
       ];
 
       # Workspace configuration
