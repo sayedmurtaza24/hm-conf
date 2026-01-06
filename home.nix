@@ -16,8 +16,8 @@
     ./zsh.nix
     # ./remotegamepad.nix
     # ./caelestia.nix
-    # ./noctalia.nix
-    ./dms.nix
+    ./noctalia.nix
+    # ./dms.nix
     ./git.nix
     ./desktop.nix
   ];
