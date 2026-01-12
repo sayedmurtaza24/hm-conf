@@ -16,13 +16,14 @@
     settings = {
       appLauncher = {
         autoPasteClipboard = false;
+        clipboardWrapText = true;
         customLaunchPrefix = "";
         customLaunchPrefixEnabled = false;
         enableClipPreview = true;
         enableClipboardHistory = false;
         iconMode = "tabler";
         ignoreMouseInput = false;
-        pinnedExecs = [ ];
+        pinnedApps = [ ];
         position = "center";
         screenshotAnnotationTool = "";
         showCategories = true;
@@ -34,7 +35,6 @@
       };
       audio = {
         cavaFrameRate = 30;
-        externalMixer = "pwvucontrol || pavucontrol";
         mprisBlacklist = [ ];
         preferredPlayer = "";
         visualizerType = "linear";
@@ -42,13 +42,13 @@
         volumeStep = 5;
       };
       bar = {
-        backgroundOpacity = 0.91;
+        backgroundOpacity = 0.6;
         capsuleOpacity = 1;
         density = "default";
         exclusive = true;
         floating = true;
-        marginHorizontal = 0.25;
-        marginVertical = 0.25;
+        marginHorizontal = 5;
+        marginVertical = 5;
         monitors = [
           "DP-3"
         ];
@@ -94,10 +94,15 @@
             usePrimaryColor = false;
           }
           {
+            compactMode = false;
+            compactShowAlbumArt = true;
+            compactShowVisualizer = false;
             hideMode = "hidden";
             hideWhenIdle = false;
             id = "MediaMini";
             maxWidth = 145;
+            panelShowAlbumArt = true;
+            panelShowVisualizer = true;
             scrollingMode = "hover";
             showAlbumArt = false;
             showArtistFirst = true;
@@ -132,10 +137,6 @@
           ];
           right = [
           {
-            displayMode = "onhover";
-            id = "Microphone";
-          }
-          {
             compactMode = true;
             diskPath = "/";
             id = "SystemMonitor";
@@ -149,9 +150,6 @@
             showNetworkStats = false;
             useMonospaceFont = true;
             usePrimaryColor = false;
-          }
-          {
-            id = "ScreenRecorder";
           }
           {
             blacklist = [ ];
@@ -173,6 +171,7 @@
           {
             displayMode = "onhover";
             id = "Volume";
+            middleClickCommand = "pwvucontrol || pavucontrol";
           }
           {
             displayMode = "onhover";
@@ -280,9 +279,6 @@
             id = "Bluetooth";
           }
           {
-            id = "ScreenRecorder";
-          }
-          {
             id = "WallpaperSelector";
           }
           ];
@@ -346,6 +342,7 @@
         onlySameOutput = true;
         pinnedApps = [ ];
         pinnedStatic = false;
+        position = "bottom";
         size = 1;
       };
       general = {
@@ -355,7 +352,7 @@
         avatarImage = "/home/murtaza/Pictures/Edited/IMG_1559.jpg";
         boxRadiusRatio = 1;
         compactLockScreen = false;
-        dimmerOpacity = 0.35000000000000003;
+        dimmerOpacity = 0.3;
         enableShadows = true;
         forceBlackScreenCorners = false;
         iRadiusRatio = 1;
@@ -452,18 +449,6 @@
         monitors = [ ];
         overlayLayer = true;
       };
-      screenRecorder = {
-        audioCodec = "opus";
-        audioSource = "default_output";
-        colorRange = "limited";
-        copyToClipboard = false;
-        directory = "/home/murtaza/Videos";
-        frameRate = 60;
-        quality = "very_high";
-        showCursor = true;
-        videoCodec = "h264";
-        videoSource = "portal";
-      };
       sessionMenu = {
         countdownDuration = 10000;
         enableCountdown = true;
@@ -511,7 +496,7 @@
         showHeader = true;
         showNumberLabels = true;
       };
-      settingsVersion = 37;
+      settingsVersion = 39;
       systemMonitor = {
         cpuCriticalThreshold = 90;
         cpuPollingInterval = 3000;
@@ -573,7 +558,7 @@
         fontFixed = "Operator Mono Book";
         fontFixedScale = 1;
         networkPanelView = "wifi";
-        panelBackgroundOpacity = 0.95;
+        panelBackgroundOpacity = 0.76;
         panelsAttachedToBar = true;
         settingsPanelMode = "attached";
         tooltipsEnabled = true;
