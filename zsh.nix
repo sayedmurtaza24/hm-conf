@@ -8,6 +8,7 @@
   programs.zsh = {
     enable = true;
     enableCompletion = false;
+    dotDir = "${config.xdg.configHome}/zsh";
     history.ignoreDups = false;
     history.ignoreSpace = false;
     history.share = false;
