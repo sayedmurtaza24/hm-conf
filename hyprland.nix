@@ -272,44 +272,20 @@
 
       # Window rules
       windowrule = [
-        "suppressevent maximize, class:.*"
-        "nofocus,class:^$,title:^$,xwayland:1,floating:1,fullscreen:0,pinned:0"
-
-        # Network Manager
-        "float, title:Network Manager"
-        "size 500 700, title:Network Manager"
-        "stayfocused, title:Network Manager"
-        "dimaround 1, title:Network Manager"
-
-        # Pipewire Volume Control
-        "float, title:Pipewire Volume Control"
-        "size 900 700, title:Pipewire Volume Control"
-        "stayfocused, title:Pipewire Volume Control"
-        "dimaround 1, title:Pipewire Volume Control"
-        "noborder, title:Pipewire Volume Control"
-        "rounding 14, title:Pipewire Volume Control"
-        "roundingpower 10, title:Pipewire Volume Control"
-
-        # Bluetui
-        "float, title:Bluetui"
-        "size 900 700, title:Bluetui"
-        "stayfocused, title:Bluetui"
-        "dimaround 1, title:Bluetui"
-
-        # dms widgets
-        "float, class:^(org.quickshell)$"
+        "match:class .*, suppress_event maximize"
+        "match:class ^$,match:title ^$, match:xwayland on,no_focus on,float on,fullscreen off,pin off"
       ];
 
       # Layer rules
       layerrule = [
-        "blur, rofi"
-        "ignorealpha 0, rofi"
-        "blur, $blur_layer"
-        "ignorealpha 0, $blur_layer"
-        "noanim, ^(dms)$"
-        "blur, noctalia-background-.*$"
-        "ignorealpha 0.5, noctalia-background-.*$"
-        "blurpopups, noctalia-background-.*$"
+        "blur on, match:namespace rofi"
+        "ignore_alpha 0, match:namespace rofi"
+        # "blur on, $blur_layer"
+        # "ignorealpha 0, $blur_layer"
+        # "no_anim on, ^(dms)$"
+        "blur on, match:namespace noctalia-background-.*$"
+        "ignore_alpha 0.5, match:namespace noctalia-background-.*$"
+        "blur_popups on, match:namespace noctalia-background-.*$"
       ];
 
       # Workspace configuration
