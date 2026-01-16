@@ -162,7 +162,6 @@
     indicator = true;
   };
 
-
   services.podman.enable = true;
   services.cliphist.enable = true;
   services.ollama.enable = true;

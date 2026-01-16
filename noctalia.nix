@@ -9,6 +9,8 @@
     inputs.noctalia.homeModules.default
   ];
 
+  programs.hyprshot.enable = true;
+
   programs.noctalia-shell = {
     enable = true;
     systemd.enable = true;
