@@ -1,0 +1,6 @@
+vim.keymap.set('n', '<esc>', ':noh<CR><esc>', { noremap = true, silent = true })
+vim.keymap.set('n', '<leader>tn', ':tabnew<CR>', { noremap = true, silent = true })
+vim.keymap.set('n', '<leader>tc', ':tabclose<CR>', { noremap = true, silent = true })
+vim.keymap.set('n', '<leader>tl', ':tabnext<CR>', { noremap = true, silent = true })
+vim.keymap.set('n', '<leader>th', ':tabprev<CR>', { noremap = true, silent = true })
+vim.keymap.set('t', '<Esc><Esc>', [[<C-\><C-n>]])

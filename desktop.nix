@@ -33,19 +33,4 @@ in
     type = "Application";
     terminal = false;
   };
-
-  xdg.desktopEntries.systemmonitor = {
-    name = "System Monitor";
-    genericName = "System Monitor";
-    comment = "See system processes and CPU/GPU";
-    exec = "dms ipc call processlist open";
-    icon = "${pkgs.fetchurl {
-      url = "https://sascha-simon.com/assets/app-icons/remote-monitor.png";
-      sha256 = "sha256-p7VdwYZGSMnn/+i8Hw7kKtj0IcLfx0gaaAguwv5xlEk=";
-    }}";
-    categories = [ "System" ];
-    type = "Application";
-    terminal = false;
-  };
-
 }

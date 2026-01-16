@@ -1,0 +1,118 @@
+-- vim.cmd ":tnoremap <Esc><Esc> <C-\\><C-n>"
+-- vim.cmd ":tnoremap <C-h> <C-\\><C-N><C-w>h"
+-- vim.cmd ":tnoremap <C-j> <C-\\><C-N><C-w>j"
+-- vim.cmd ":tnoremap <C-k> <C-\\><C-N><C-w>k"
+-- vim.cmd ":tnoremap <C-l> <C-\\><C-N><C-w>l"
+-- vim.cmd ":inoremap <C-h> <C-\\><C-N><C-w>h"
+-- vim.cmd ":inoremap <C-j> <C-\\><C-N><C-w>j"
+-- vim.cmd ":inoremap <C-k> <C-\\><C-N><C-w>k"
+-- vim.cmd ":inoremap <C-l> <C-\\><C-N><C-w>l"
+-- vim.cmd ":nnoremap <C-h> <C-w>h"
+-- vim.cmd ":nnoremap <C-j> <C-w>j"
+-- vim.cmd ":nnoremap <C-k> <C-w>k"
+-- vim.cmd ":nnoremap <C-l> <C-w>l"
+--
+-- local open_terms = {}
+--
+-- local function new_terminal(opts)
+--   opts = opts or {}
+--   opts.keep_focus = opts.keep_focus or false
+--
+--   local currentwin = vim.api.nvim_get_current_win()
+--
+--   if open_terms and #open_terms > 0 then
+--     vim.api.nvim_set_current_win(open_terms[#open_terms].winid)
+--     vim.cmd.vsplit()
+--   else
+--     vim.cmd.vnew()
+--     vim.cmd.wincmd("J")
+--     vim.api.nvim_win_set_height(0, 15)
+--     vim.api.nvim_win_set_var(0, "title", "terminal")
+--   end
+--
+--   local bufid
+--   vim.fn.termopen({ "kitten", "run-shell" }, {
+--     on_exit = function()
+--       vim.cmd("bdelete! " .. bufid)
+--     end
+--   })
+--
+--   vim.cmd("startinsert!")
+--
+--   bufid = vim.api.nvim_get_current_buf()
+--
+--   if opts.keep_focus then
+--     vim.api.nvim_set_current_win(currentwin)
+--   end
+-- end
+--
+-- local function close_term(buf)
+--   if not buf then return end
+--
+--   for i, openterm in ipairs(open_terms) do
+--     if openterm.buf == buf then
+--       table.remove(open_terms, i)
+--       vim.api.nvim_win_close(openterm.winid, true)
+--       local job_id = vim.b[openterm.buf].terminal_job_id
+--       vim.fn.jobstop(job_id)
+--     end
+--   end
+-- end
+--
+-- local function do_previous(term, opts)
+--   if not term or not term.buf then
+--     return
+--   end
+--
+--   opts = opts or {}
+--   opts.redo = opts.redo or false
+--
+--   -- Get the terminal's channel ID
+--   local chan_id = vim.b[term.buf].terminal_job_id
+--   if not chan_id or chan_id == 0 then
+--     print("Terminal channel not active")
+--     return
+--   end
+--
+--   -- Send the UP and ENTER code to the terminal
+--   vim.fn.chansend(chan_id, "\x1b[A\n") -- Up arrow and Enter key
+-- end
+--
+-- vim.keymap.set("n", "<leader>t", new_terminal, { noremap = true })
+--
+-- vim.keymap.set("n", "<leader>do", function()
+--   if not open_terms or #open_terms ~= 1 then
+--     new_terminal({ keep_focus = true })
+--   end
+--
+--   do_previous(open_terms[1])
+-- end)
+--
+-- vim.keymap.set("n", "<leader>redo", function()
+--   if not open_terms or #open_terms ~= 1 then
+--     print("need one terminal to be active")
+--     return
+--   end
+--
+--   do_previous(open_terms[1], { redo = true })
+-- end)
+--
+-- vim.keymap.set("n", "<space>do", function()
+--   if not open_terms or #open_terms ~= 1 then
+--     new_terminal({ keep_focus = true })
+--   end
+--
+--   do_previous(open_terms[1])
+-- end)
+--
+-- vim.api.nvim_create_autocmd("BufWinLeave", {
+--   callback = function(args)
+--     close_term(args.buf)
+--   end
+-- })
+--
+-- vim.api.nvim_create_autocmd("TermOpen", {
+--   callback = function(args)
+--     table.insert(open_terms, { buf = args.buf, id = args.id, winid = vim.api.nvim_get_current_win() })
+--   end
+-- })

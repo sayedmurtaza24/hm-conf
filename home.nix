@@ -110,6 +110,11 @@
     vimAlias = true;
   };
 
+  home.activation.nvimSymlink = config.lib.dag.entryAfter ["writeBoundary"] ''
+    rm -rf ${config.home.homeDirectory}/.config/nvim
+    ln -sf ${config.home.homeDirectory}/.config/home-manager/nvim ${config.home.homeDirectory}/.config/nvim
+  '';
+
   programs.lutris = {
     enable = true;
     extraPackages = with pkgs; [mangohud winetricks gamemode umu-launcher];
