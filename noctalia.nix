@@ -131,7 +131,7 @@
             colorizeIcons = false;
             hideMode = "hidden";
             id = "ActiveWindow";
-            maxWidth = 145;
+            maxWidth = 250;
             scrollingMode = "hover";
             showIcon = false;
             useFixedWidth = false;
@@ -238,7 +238,7 @@
         darkMode = true;
         manualSunrise = "06:30";
         manualSunset = "18:30";
-        matugenSchemeType = "scheme-rainbow";
+        matugenSchemeType = "scheme-tonal-spot";
         predefinedScheme = "Noctalia (default)";
         schedulingMode = "off";
         useWallpaperColors = true;
@@ -310,7 +310,8 @@
           {
             clockStyle = "analog";
             customFont = "";
-            format = "HH:mm\nd MMMM yyyy";
+            format = "HH:mm
+              d MMMM yyyy";
             id = "Clock";
             roundedCorners = true;
             scale = 1.63286056916196;
@@ -555,8 +556,8 @@
         bluetoothDetailsViewMode = "grid";
         bluetoothHideUnnamedDevices = false;
         boxBorderEnabled = false;
-        fontDefault = "Figtree";
-        fontDefaultScale = 1;
+        fontDefault = "JetBrainsMono Nerd Font";
+        fontDefaultScale = 0.92;
         fontFixed = "Operator Mono Book";
         fontFixedScale = 1;
         networkPanelView = "wifi";
