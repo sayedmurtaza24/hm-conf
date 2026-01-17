@@ -62,7 +62,7 @@ in
         position = "center";
         screenshotAnnotationTool = "";
         showCategories = true;
-        showIconBackground = true;
+        showIconBackground = false;
         sortByMostUsed = true;
         terminalCommand = "xterm -e";
         useApp2Unit = false;
@@ -82,6 +82,7 @@ in
         density = "default";
         exclusive = true;
         floating = true;
+        hideOnOverview = false;
         marginHorizontal = 5;
         marginVertical = 5;
         monitors = [
@@ -105,6 +106,7 @@ in
           }
           {
             hideWhenZero = false;
+            hideWhenZeroUnread = false;
             id = "NotificationHistory";
             showUnreadBadge = true;
           }
@@ -164,13 +166,19 @@ in
             colorizeIcons = false;
             hideMode = "hidden";
             id = "ActiveWindow";
-            maxWidth = 250;
+            maxWidth = 1452;
             scrollingMode = "hover";
-            showIcon = false;
+            showIcon = true;
             useFixedWidth = false;
           }
           ];
           right = [
+          {
+            defaultSettings = {
+              mode = "region";
+            };
+            id = "plugin:screenshot";
+          }
           {
             compactMode = true;
             diskPath = "/";
@@ -182,7 +190,7 @@ in
             showLoadAverage = false;
             showMemoryAsPercent = false;
             showMemoryUsage = true;
-            showNetworkStats = false;
+            showNetworkStats = true;
             useMonospaceFont = true;
             usePrimaryColor = false;
           }
@@ -404,6 +412,7 @@ in
         showHibernateOnLockScreen = false;
         showScreenCorners = false;
         showSessionButtonsOnLockScreen = true;
+        telemetryEnabled = true;
       };
       hooks = {
         darkModeChange = "";
@@ -412,6 +421,7 @@ in
         performanceModeEnabled = "";
         screenLock = "";
         screenUnlock = "";
+        session = "";
         wallpaperChange = "";
       };
       location = {
@@ -532,7 +542,7 @@ in
         showHeader = true;
         showNumberLabels = true;
       };
-      settingsVersion = 39;
+      settingsVersion = 40;
       systemMonitor = {
         cpuCriticalThreshold = 90;
         cpuPollingInterval = 3000;
@@ -541,7 +551,7 @@ in
         diskCriticalThreshold = 90;
         diskPollingInterval = 3000;
         diskWarningThreshold = 80;
-        enableDgpuMonitoring = true;
+        enableDgpuMonitoring = false;
         externalMonitor = "resources || missioncenter || jdsystemmonitor || corestats || system-monitoring-center || gnome-system-monitor || plasma-systemmonitor || mate-system-monitor || ukui-system-monitor || deepin-system-monitor || pantheon-system-monitor";
         gpuCriticalThreshold = 90;
         gpuPollingInterval = 3000;
@@ -558,32 +568,8 @@ in
         warningColor = "";
       };
       templates = {
-        alacritty = false;
-        cava = false;
-        code = false;
-        discord = false;
-        emacs = false;
+        activeTemplates = [ ];
         enableUserTemplates = false;
-        foot = false;
-        fuzzel = false;
-        ghostty = false;
-        gtk = false;
-        helix = false;
-        hyprland = false;
-        kcolorscheme = false;
-        kitty = false;
-        mango = false;
-        niri = false;
-        pywalfox = false;
-        qt = false;
-        spicetify = false;
-        telegram = false;
-        vicinae = false;
-        walker = false;
-        wezterm = false;
-        yazi = false;
-        zed = false;
-        zenBrowser = false;
       };
       ui = {
         bluetoothDetailsViewMode = "grid";

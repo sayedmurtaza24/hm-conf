@@ -6,6 +6,11 @@
   ...
 }:
 
+let
+  reversal-black = pkgs.reversal-icon-theme.override {
+    colorVariants = [ "-black" ];
+  };
+in
 {
   imports = [
     inputs.nix-flatpak.homeManagerModules.nix-flatpak
@@ -25,8 +30,8 @@
   systemd.user.sessionVariables = {
     PATH = "${config.home.profileDirectory}/bin:/run/current-system/sw/bin";
     EDITOR = "${pkgs.neovim}";
-    QT_QPA_PLATFORMTHEME_QT6 = "qt6ct";
     QT_STYLE_OVERRIDE = "Adwaita-dark";
+    QS_ICON_THEME="Reversal-black";
   };
 
   programs.home-manager.enable = true;
@@ -47,6 +52,8 @@
   };
 
   home.packages = with pkgs; [
+    reversal-black
+
     # language servers
     vtsls
     nixd
@@ -132,6 +139,10 @@
       name = "adw-gtk3-dark";
       package = pkgs.adw-gtk3;
     };
+    iconTheme = {
+      name = "Reversal-black";
+      package = reversal-black;
+    };
     gtk3.extraCss = ''
       @import url("${config.xdg.configHome}/gtk-4.0/dank-colors.css");
     '';
@@ -142,7 +153,7 @@
 
   qt = {
     enable = true;
-    platformTheme.name = "qtct";
+    platformTheme.name = "gtk3";
     style = {
       name = "Adwaita-dark";
       package = pkgs.adwaita-qt;
