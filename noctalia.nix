@@ -12,6 +12,8 @@ in
     inputs.noctalia.homeModules.default
   ];
 
+  home.packages = [ pkgs.matugen ];
+
   programs.hyprshot.enable = true;
 
   wayland.windowManager.hyprland.settings = {
@@ -412,7 +414,7 @@ in
         showHibernateOnLockScreen = false;
         showScreenCorners = false;
         showSessionButtonsOnLockScreen = true;
-        telemetryEnabled = true;
+        telemetryEnabled = false;
       };
       hooks = {
         darkModeChange = "";
@@ -568,7 +570,12 @@ in
         warningColor = "";
       };
       templates = {
-        activeTemplates = [ ];
+        activeTemplates = [
+        {
+          enabled = true;
+          id = "zenBrowser";
+        }
+        ];
         enableUserTemplates = false;
       };
       ui = {
@@ -587,7 +594,7 @@ in
         wifiDetailsViewMode = "grid";
       };
       wallpaper = {
-        directory = "/home/murtaza/Downloads";
+        directory = "/home/murtaza/Pictures/Wallpapers";
         enableMultiMonitorDirectories = false;
         enabled = true;
         fillColor = "#000000";
