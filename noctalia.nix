@@ -28,16 +28,16 @@ in
 
       listener = [
         {
-          timeout = 30;
+          timeout = 5 * 60;
           on-timeout = "${noctalia}/bin/noctalia-shell ipc call lockScreen lock";
         }
         {
-          timeout = 35; # 5 min
+          timeout = 5 * 60; # 5 min
           on-timeout = "hyprctl dispatch dpms off";
           on-resume = "hyprctl dispatch dpms on";
         }
         {
-          timeout = 40; # 10 min
+          timeout = 10 * 60; # 10 min
           on-timeout = "systemctl suspend";
         }
       ];
