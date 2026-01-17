@@ -4,12 +4,45 @@
   ...
 }:
 
+let
+  noctalia = inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default;
+in
 {
   imports = [
     inputs.noctalia.homeModules.default
   ];
 
   programs.hyprshot.enable = true;
+
+  wayland.windowManager.hyprland.settings = {
+    "$menu" = "noctalia-shell ipc call launcher toggle";
+  };
+
+  services.hypridle = {
+    enable = true;
+
+    settings = {
+      general = {
+        ignore_dbus_inhibit = false;
+      };
+
+      listener = [
+        {
+          timeout = 30;
+          on-timeout = "${noctalia}/bin/noctalia-shell ipc call lockScreen lock";
+        }
+        {
+          timeout = 35; # 5 min
+          on-timeout = "hyprctl dispatch dpms off";
+          on-resume = "hyprctl dispatch dpms on";
+        }
+        {
+          timeout = 40; # 10 min
+          on-timeout = "systemctl suspend";
+        }
+      ];
+    };
+  };
 
   programs.noctalia-shell = {
     enable = true;
@@ -600,9 +633,5 @@
         wallpaperChangeMode = "random";
       };
     };
-  };
-
-  wayland.windowManager.hyprland.settings = {
-    "$menu" = "noctalia-shell ipc call launcher toggle";
   };
 }

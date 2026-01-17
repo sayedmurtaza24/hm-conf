@@ -10,20 +10,20 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    quickshell = {
-      url = "github:outfoxxed/quickshell";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    # quickshell = {
+    #   url = "github:outfoxxed/quickshell";
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    # };
 
-    dgop = {
-      url = "github:AvengeMedia/dgop";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    # dgop = {
+    #   url = "github:AvengeMedia/dgop";
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    # };
 
-    dank-material-shell = {
-      url = "github:AvengeMedia/DankMaterialShell";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    # dank-material-shell = {
+    #   url = "github:AvengeMedia/DankMaterialShell";
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    # };
 
     noctalia = {
       url = "github:noctalia-dev/noctalia-shell";
@@ -37,7 +37,7 @@
         pkgs = import nixpkgs { system = "x86_64-linux"; config.allowUnfree = true; };
         modules = [
           ./home.nix
-          inputs.dank-material-shell.homeModules.dank-material-shell
+          # inputs.dank-material-shell.homeModules.dank-material-shell
           inputs.nix-flatpak.homeManagerModules.nix-flatpak
         ];
         extraSpecialArgs = { inherit inputs; };
