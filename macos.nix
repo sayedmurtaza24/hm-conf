@@ -8,6 +8,10 @@
     ./common.nix
   ];
 
+  home.packages = with pkgs; [
+    slack
+  ];
+
   targets.darwin.linkApps.enable = false;
   targets.darwin.copyApps.enable = true;
 }
