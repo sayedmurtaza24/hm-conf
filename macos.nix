@@ -6,10 +6,12 @@
 
   imports = [
     ./common.nix
+    ./work.nix
   ];
 
   home.packages = with pkgs; [
     slack
+    chatgpt
   ];
 
   targets.darwin.linkApps.enable = false;

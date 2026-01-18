@@ -52,8 +52,6 @@
               LESS_TERMCAP_us=$(printf "\e[1;32m") \
               man "$@"
           }
-
-          [[ -f "${config.home.homeDirectory}/.env" ]] && source "${config.home.homeDirectory}/.env"
       ''; in lib.mkMerge [ earlyInit normalConfig ];
   };
 
