@@ -1,46 +1,33 @@
-{
-  config,
-  lib,
-  pkgs,
-  inputs,
-  ...
-}:
-
+{ pkgs, inputs, config, lib, ... }:
 let
   reversal-black = pkgs.reversal-icon-theme.override {
     colorVariants = [ "-black" ];
   };
 in
 {
+  home.username = "murtaza";
+  home.stateVersion = "25.05";
+  home.homeDirectory = "/Users/murtaza";
+
   imports = [
     inputs.nix-flatpak.homeManagerModules.nix-flatpak
 
-    ./ghostty.nix
+    ./common.nix
     ./rofi-pass.nix
     ./hyprland.nix
-    ./zsh.nix
+    ./desktop.nix
+    ./noctalia.nix
+
     # ./remotegamepad.nix
     # ./caelestia.nix
-    ./noctalia.nix
     # ./dms.nix
-    ./git.nix
-    ./desktop.nix
   ];
 
   systemd.user.sessionVariables = {
     PATH = "${config.home.profileDirectory}/bin:/run/current-system/sw/bin";
-    EDITOR = "${pkgs.neovim}";
     QT_STYLE_OVERRIDE = "Adwaita-dark";
     QS_ICON_THEME="Reversal-black";
   };
-
-  programs.home-manager.enable = true;
-
-  home.username = "murtaza";
-  home.homeDirectory = "/home/murtaza";
-  home.stateVersion = "25.05"; # Use your NixOS version
-
-  fonts.fontconfig.enable = true;
 
   home.pointerCursor = {
     gtk.enable = true;
@@ -54,26 +41,7 @@ in
   home.packages = with pkgs; [
     reversal-black
 
-    # language servers
-    vtsls
-    nixd
-    eslint
-    lua-language-server
-    gopls
-    protols
-    zls
-    vscode-json-languageserver
-    prettier
-
-    # programming languages
-    zig
-    go
-
     # command line tools
-    lazygit
-    curl
-    fd
-    ripgrep
     nvtopPackages.amd
     wl-clipboard
     swaybg
@@ -81,11 +49,9 @@ in
     bitwarden-cli
     bluetui
     impala
-    btop
     libnotify
 
     # desktop apps
-    bitwarden-desktop
     nautilus
     qimgv
     gnome-tweaks
@@ -107,20 +73,6 @@ in
     xdg-desktop-portal-gtk
     xdg-desktop-portal-hyprland
   ];
-
-  programs.zoxide.enable = true;
-
-  programs.neovim = {
-    enable = true;
-    defaultEditor = true;
-    viAlias = true;
-    vimAlias = true;
-  };
-
-  home.activation.nvimSymlink = config.lib.dag.entryAfter ["writeBoundary"] ''
-    rm -rf ${config.home.homeDirectory}/.config/nvim
-    ln -sf ${config.home.homeDirectory}/.config/home-manager/nvim ${config.home.homeDirectory}/.config/nvim
-  '';
 
   programs.lutris = {
     enable = true;
@@ -165,6 +117,7 @@ in
   home.file."${config.xdg.configHome}/gtk-4.0/gtk.css".force = lib.mkForce true;
   home.file."${config.xdg.configHome}/gtk-3.0/gtk.css".force = lib.mkForce true;
 
+  services.cliphist.enable = true;
   services.flatpak.enable = true;
   services.flatpak.packages = [
     { appId = "com.brave.Browser"; origin = "flathub";  }
@@ -177,8 +130,4 @@ in
     enable = true;
     indicator = true;
   };
-
-  services.podman.enable = true;
-  services.cliphist.enable = true;
-  services.ollama.enable = true;
 }

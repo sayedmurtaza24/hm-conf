@@ -12,6 +12,7 @@ local servers = {
   zls = {},
   tailwindcss = {},
   dart_ls = {},
+  nixd = {},
 }
 
 return {

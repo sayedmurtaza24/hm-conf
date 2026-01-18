@@ -1,10 +1,16 @@
-{ config, ... }:{
+{ pkgs, ... }:{
   programs.ghostty = {
     enable = true;
     enableZshIntegration = true;
-    systemd.enable = true;
+    systemd.enable = !pkgs.stdenv.hostPlatform.isDarwin;
+    package = pkgs.ghostty-bin;
 
     settings = {
+      # mac only
+      background-blur = if pkgs.stdenv.hostPlatform.isDarwin then 90 else 0;
+      macos-titlebar-style = "hidden";
+      # end
+
       font-family = "Operator Mono";
       font-style = "Book";
       font-style-italic = "Book Italic";
@@ -28,7 +34,6 @@
 
       cursor-click-to-move = true;
       background-opacity = 0.80;
-      background-blur-radius = 0;
       unfocused-split-opacity = 0.7;
 
       scrollback-limit = 10000000;
@@ -42,7 +47,7 @@
       window-vsync = true;
       window-inherit-working-directory = true;
       window-inherit-font-size = false;
-      window-decoration = true;
+      window-decoration = "auto";
       window-show-tab-bar = "never";
 
       focus-follows-mouse = true;
