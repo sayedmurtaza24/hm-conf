@@ -6,7 +6,7 @@
       user.email = "sayedmurtazamuttahary@gmail.com";
       alias = {
         co = "checkout";
-        fp = "push --force-push-with-lease";
+        fp = "push --force-with-lease";
       };
     };
   };
