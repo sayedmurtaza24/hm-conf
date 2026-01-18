@@ -8,6 +8,11 @@
         co = "checkout";
         fp = "push --force-with-lease";
       };
+      url = {
+        "git@gitlab.com" = { insteadOf = "https://gitlab.com/"; };
+        "git@github.com" = { insteadOf = "https://github.com/"; };
+        "git@codeberg.org" = { insteadOf = "https://codeberg.org/"; };
+      };
     };
   };
 
