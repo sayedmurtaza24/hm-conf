@@ -1,4 +1,6 @@
 { pkgs, ... }: {
+  programs.zsh.shellAliases.lgit = "lazygit";
+
   programs.lazygit = {
     enable = true;
 

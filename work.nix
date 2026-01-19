@@ -22,6 +22,8 @@
   programs.zsh.shellAliases = {
     bsync = "$GOBIN/bruno sync $(git branch --show-current)";
     bgen = "${pkgs.docker}/bin/docker run --rm -w /mount -v $(pwd):/mount europe-docker.pkg.dev/pley-artifacts/containers/ci-tools/bruno:1.5.1 gen";
+    logmainprod = "git fetch && git log origin/main --not origin/prod";
+    logprodmain = "git fetch && git log origin/prod --not origin/main";
   };
 
   programs.docker-cli = {

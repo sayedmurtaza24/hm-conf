@@ -15,8 +15,8 @@
 
     shellAliases = {
        conf = "sudo -E nvim -c 'cd /etc/nixos/' -c ':lua Snacks.picker.smart()'";
-       lgit = "lazygit";
        nrs  = "sudo nixos-rebuild switch";
+       drs  = "sudo darwin-rebuild switch";
        hms  = "home-manager switch";
        hc   = "cd ~/.config/home-manager && nvim";
        cd   = "z";
@@ -54,10 +54,6 @@
           }
 
           [[ -f "${config.home.homeDirectory}/.env" ]] && source "${config.home.homeDirectory}/.env"
-
-          if [[ -n $ZMX_SESSION ]]; then
-            export PS1="[$ZMX_SESSION] $\{PS1}"
-          fi
       ''; in lib.mkMerge [ earlyInit normalConfig ];
   };
 

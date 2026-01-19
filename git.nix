@@ -16,6 +16,10 @@
     };
   };
 
+  programs.zsh.shellAliases = {
+    rebase = "git fetch && git rebase origin/main";
+  };
+
   programs.delta = {
     enable = true;
     enableGitIntegration = true;
