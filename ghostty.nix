@@ -16,7 +16,6 @@
         font-thicken-strength = 1;
         alpha-blending = "native";
         font-synthetic-style = "bold,italic,bold-italic";
-        font-size = 18;
       })
 
       {
@@ -33,7 +32,7 @@
         font-thicken-strength = 1;
         alpha-blending = "native";
 
-        font-size = if pkgs.stdenv.hostPlatform.isDarwin then 16 else 14;
+        font-size = if pkgs.stdenv.hostPlatform.isDarwin then 18 else 14;
 
         theme = "Kanagawabones";
         # config-file = "${config.xdg.configHome}/ghostty/config-dankcolors";
