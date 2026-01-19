@@ -7,6 +7,7 @@
   imports = [
     ./common.nix
     ./work.nix
+    ./colima.nix
   ];
 
   home.packages = with pkgs; [
@@ -16,4 +17,8 @@
 
   targets.darwin.linkApps.enable = false;
   targets.darwin.copyApps.enable = true;
+
+  home.sessionVariables = {
+    LC_ALL="en_US.UTF-8";
+  };
 }
