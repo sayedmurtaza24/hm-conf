@@ -2,10 +2,12 @@
 {
   home.packages = with pkgs; [
     google-cloud-sdk
-    docker
     nodejs
     bun
     llvm_21
+    protobuf
+    protoc-gen-go-grpc
+    docker
   ];
 
   home.sessionVariables = {
@@ -18,5 +20,15 @@
 
   programs.zsh.shellAliases = {
     bsync = "$GOBIN/bruno sync $(git branch --show-current)";
+    bgen = "${pkgs.docker}/bin/docker run --rm -w /mount -v $(pwd):/mount europe-docker.pkg.dev/pley-artifacts/containers/ci-tools/bruno:1.5.1 gen";
+  };
+
+  programs.docker-cli = {
+    enable = true;
+    settings = {
+      credHelpers = {
+        "europe-docker.pkg.dev" = "gcloud";
+      };
+    };
   };
 }
