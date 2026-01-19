@@ -54,6 +54,10 @@
           }
 
           [[ -f "${config.home.homeDirectory}/.env" ]] && source "${config.home.homeDirectory}/.env"
+
+          if [[ -n $ZMX_SESSION ]]; then
+            export PS1="[$ZMX_SESSION] $\{PS1}"
+          fi
       ''; in lib.mkMerge [ earlyInit normalConfig ];
   };
 

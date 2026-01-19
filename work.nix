@@ -16,6 +16,7 @@
     CGO_LDFLAGS="-L/opt/homebrew/lib";
     CGO_CPPFLAGS="-I/opt/homebrew/include";
     TRAIL_ENABLE_DEBUGGING=1;
+    PATH="$PATH:$GOBIN";
   };
 
   programs.zsh.shellAliases = {
