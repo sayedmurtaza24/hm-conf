@@ -8,6 +8,7 @@
     protobuf
     protoc-gen-go-grpc
     docker
+    fzf
   ];
 
   home.sessionVariables = {
