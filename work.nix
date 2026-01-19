@@ -9,6 +9,7 @@
     protoc-gen-go-grpc
     docker
     fzf
+    postgresql
   ];
 
   home.sessionVariables = {
