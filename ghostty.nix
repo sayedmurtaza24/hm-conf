@@ -2,7 +2,7 @@
   programs.ghostty = {
     enable = true;
     enableZshIntegration = true;
-    systemd.enable = !pkgs.stdenv.hostPlatform.isDarwin;
+    systemd.enable = !pkgs.stdenv.isDarwin;
     package = pkgs.ghostty-bin;
 
     settings = lib.mkMerge [
@@ -19,6 +19,9 @@
       })
 
       {
+        font-size = if pkgs.stdenv.hostPlatform.isDarwin then 18 else 14;
+        background-opacity = if pkgs.stdenv.hostPlatform.isDarwin then 0.90 else 0.80;
+
         font-family = "Operator Mono";
         font-style = "Book";
         font-style-italic = "Book Italic";
@@ -32,8 +35,6 @@
         font-thicken-strength = 1;
         alpha-blending = "native";
 
-        font-size = if pkgs.stdenv.hostPlatform.isDarwin then 18 else 14;
-
         theme = "Kanagawabones";
         # config-file = "${config.xdg.configHome}/ghostty/config-dankcolors";
         background = "#141416";
@@ -41,7 +42,6 @@
         cursor-style = "block";
 
         cursor-click-to-move = true;
-        background-opacity = 0.80;
         unfocused-split-opacity = 0.7;
 
         scrollback-limit = 10000000;

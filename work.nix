@@ -1,8 +1,14 @@
 { pkgs, config, ... }:
+let
+  gdk = pkgs.google-cloud-sdk.withExtraComponents( with pkgs.google-cloud-sdk.components; [
+    log-streaming
+  ]);
+in
 {
   home.packages = with pkgs; [
-    google-cloud-sdk
-    nodejs
+    gdk
+    nodejs_22
+    typescript-language-server
     bun
     llvm_21
     protobuf
