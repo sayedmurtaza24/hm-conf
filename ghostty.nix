@@ -8,7 +8,7 @@
     settings = lib.mkMerge [
       (lib.mkIf pkgs.stdenv.isDarwin {
         background-blur = 60;
-        macos-titlebar-style = "hidden";
+        macos-titlebar-style = "tabs";
         adjust-cell-height = 2;
         adjust-font-baseline = 1;
         adjust-cursor-height = 2;
@@ -16,12 +16,18 @@
         font-thicken-strength = 1;
         alpha-blending = "native";
         font-synthetic-style = "bold,italic,bold-italic";
+        font-size = 18;
+        background-opacity = 0.80;
+        window-padding-y = 0;
+      })
+
+      (lib.mkIf (!pkgs.stdenv.isDarwin) {
+        font-size = 14;
+        background-opacity = 0.80;
+        window-padding-y = 10;
       })
 
       {
-        font-size = if pkgs.stdenv.hostPlatform.isDarwin then 18 else 14;
-        background-opacity = if pkgs.stdenv.hostPlatform.isDarwin then 0.90 else 0.80;
-
         font-family = "Operator Mono";
         font-style = "Book";
         font-style-italic = "Book Italic";
@@ -49,7 +55,6 @@
         fullscreen = false;
 
         window-padding-x = 10;
-        window-padding-y = 10;
         window-padding-balance = true;
         window-padding-color = "background";
         window-vsync = true;

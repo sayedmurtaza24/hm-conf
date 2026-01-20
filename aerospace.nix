@@ -86,7 +86,7 @@
       on-window-detected = [
         {
           "if".app-id = "com.mitchellh.ghostty";
-          run = "move-node-to-workspace I";
+          run = ["move-node-to-workspace I" "layout floating" ];
         }
         {
           "if".app-id = "com.tinyspeck.slackmacgap";
