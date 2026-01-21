@@ -19,7 +19,6 @@ in
     ./modules/desktop.nix
     ./modules/noctalia.nix
 
-    # ./remotegamepad.nix
     # ./caelestia.nix
     # ./dms.nix
   ];
