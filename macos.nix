@@ -6,8 +6,9 @@
 
   imports = [
     ./common.nix
-    ./work.nix
-    ./colima.nix
+
+    ./modules/work.nix
+    ./modules/colima.nix
   ];
 
   home.packages = with pkgs; [

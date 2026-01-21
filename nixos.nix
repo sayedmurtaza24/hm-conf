@@ -13,10 +13,11 @@ in
     inputs.nix-flatpak.homeManagerModules.nix-flatpak
 
     ./common.nix
-    ./rofi-pass.nix
-    ./hyprland.nix
-    ./desktop.nix
-    ./noctalia.nix
+
+    ./modules/rofi-pass.nix
+    ./modules/hyprland.nix
+    ./modules/desktop.nix
+    ./modules/noctalia.nix
 
     # ./remotegamepad.nix
     # ./caelestia.nix

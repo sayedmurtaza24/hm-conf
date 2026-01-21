@@ -6,11 +6,11 @@
   fonts.fontconfig.enable = true;
 
   imports = [
-    ./ghostty.nix
-    ./zsh.nix
-    ./git.nix
-    ./aerospace.nix
-    ./lazygit.nix
+    ./modules/ghostty.nix
+    ./modules/zsh.nix
+    ./modules/git.nix
+    ./modules/aerospace.nix
+    ./modules/lazygit.nix
   ];
 
   home.packages = with pkgs; [
