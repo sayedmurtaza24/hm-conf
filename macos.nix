@@ -13,6 +13,7 @@
   home.packages = with pkgs; [
     slack
     chatgpt
+    sensible-side-buttons
   ];
 
   targets.darwin.linkApps.enable = false;
