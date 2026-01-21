@@ -37,24 +37,69 @@
           fi
           source ''${ZIM_HOME}/init.zsh
       '';
-        normalConfig = lib.mkOrder 1000 ''
-          export LESS='-R' export GROFF_NO_SGR=1
 
-          man() {
-              env \
-	            MANPAGER=less \
-              LESS_TERMCAP_mb=$(printf "\e[1;31m") \
-              LESS_TERMCAP_md=$(printf "\e[1;36m") \
-              LESS_TERMCAP_me=$(printf "\e[0m") \
-              LESS_TERMCAP_se=$(printf "\e[0m") \
-              LESS_TERMCAP_so=$(printf "\e[1;44;37m") \
-              LESS_TERMCAP_ue=$(printf "\e[0m") \
-              LESS_TERMCAP_us=$(printf "\e[1;32m") \
-              man "$@"
-          }
+      normalConfig = lib.mkOrder 1000 ''
+        export LESS='-R' export GROFF_NO_SGR=1
 
-          [[ -f "${config.home.homeDirectory}/.env" ]] && source "${config.home.homeDirectory}/.env"
-      ''; in lib.mkMerge [ earlyInit normalConfig ];
+        man() {
+            env \
+            MANPAGER=less \
+            LESS_TERMCAP_mb=$(printf "\e[1;31m") \
+            LESS_TERMCAP_md=$(printf "\e[1;36m") \
+            LESS_TERMCAP_me=$(printf "\e[0m") \
+            LESS_TERMCAP_se=$(printf "\e[0m") \
+            LESS_TERMCAP_so=$(printf "\e[1;44;37m") \
+            LESS_TERMCAP_ue=$(printf "\e[0m") \
+            LESS_TERMCAP_us=$(printf "\e[1;32m") \
+            man "$@"
+        }
+
+        [[ -f "${config.home.homeDirectory}/.env" ]] && source "${config.home.homeDirectory}/.env"
+      '';
+
+      in lib.mkMerge [ earlyInit normalConfig ];
+  };
+
+  home.file."${config.xdg.configHome}/zim/.zimrc" = {
+    enable = true;
+    text = ''
+      # Sets sane Zsh built-in environment options.
+      zmodule environment
+      # Provides handy git aliases and functions.
+      zmodule git
+      # Applies correct bindkeys for input events.
+      zmodule input
+      # Sets a custom terminal title.
+      zmodule termtitle
+      # Utility aliases and functions. Adds colour to ls, grep and less.
+      zmodule utility
+
+      # Prompt
+      # Exposes how long the last command took to run to prompts.
+      zmodule duration-info
+      # Exposes git repository status information to prompts.
+      zmodule git-info
+      zmodule prompt-pwd
+      # A heavily reduced, ASCII-only version of the Spaceship and Starship prompts.
+      zmodule eriner
+
+      # Completion
+      # Additional completion definitions for Zsh.
+      zmodule zsh-users/zsh-completions --fpath src
+      # Enables and configures smart and extensive tab completion, must be sourced
+      # after all modules that add completion definitions.
+      zmodule completion
+
+      # Modules that must be initialized last
+      # Fish-like syntax highlighting for Zsh, must be sourced after completion.
+      zmodule zsh-users/zsh-syntax-highlighting
+      # Fish-like history search for Zsh, must be sourced after
+      # zsh-users/zsh-syntax-highlighting.
+      zmodule zsh-users/zsh-history-substring-search
+      # Fish-like autosuggestions for Zsh. Add the following to your ~/.zshrc to boost
+      # performance: ZSH_AUTOSUGGEST_MANUAL_REBIND=1
+      zmodule zsh-users/zsh-autosuggestions
+    '';
   };
 
   home.sessionVariables = {
