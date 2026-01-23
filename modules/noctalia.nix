@@ -231,11 +231,11 @@ in
       };
       general = {
         avatarImage = "/home/murtaza/Pictures/Edited/IMG_1559.jpg";
-        dimmerOpacity = 0.3;
+        dimmerOpacity = 0.4;
         showScreenCorners = false;
         forceBlackScreenCorners = false;
         scaleRatio = 1;
-        radiusRatio = 0.4;
+        radiusRatio = 1;
         iRadiusRatio = 1;
         boxRadiusRatio = 1;
         screenRadiusRatio = 1;
@@ -245,7 +245,7 @@ in
         lockOnSuspend = true;
         showSessionButtonsOnLockScreen = true;
         showHibernateOnLockScreen = false;
-        enableShadows = true;
+        enableShadows = false;
         shadowDirection = "bottom_right";
         shadowOffsetX = 2;
         shadowOffsetY = 3;
@@ -320,7 +320,7 @@ in
         transitionDuration = 1500;
         transitionType = "random";
         transitionEdgeSmoothness = 0.05;
-        panelPosition = "follow_bar";
+        panelPosition = "center";
         hideWallpaperFilenames = false;
         useWallhaven = false;
         wallhavenQuery = "";
@@ -434,7 +434,7 @@ in
         useCustomColors = false;
         warningColor = "";
         criticalColor = "";
-        externalMonitor = "flatpak run net.nokyan.Resources";
+        externalMonitor = "resources || missioncenter || jdsystemmonitor || corestats || system-monitoring-center || gnome-system-monitor || plasma-systemmonitor || mate-system-monitor || ukui-system-monitor || deepin-system-monitor || pantheon-system-monitor";
       };
       dock = {
         enabled = true;
@@ -445,17 +445,12 @@ in
         size = 1.4;
         onlySameOutput = false;
         monitors = [ ];
-        pinnedApps = [
-          "com.mitchellh.ghostty"
-            "app.zen_browser.zen"
-            "org.gnome.Nautilus"
-            "steam"
-        ];
+        pinnedApps = [ ];
         colorizeIcons = false;
         pinnedStatic = true;
         inactiveIndicators = true;
         deadOpacity = 0.6;
-        animationSpeed = 1;
+        animationSpeed = 1.2000000000000002;
       };
       network = {
         wifiEnabled = true;
@@ -537,7 +532,7 @@ in
           lowSoundFile = "";
           excludedApps = "discord,firefox,chrome,chromium,edge";
         };
-        enableMediaToast = false;
+        enableMediaToast = true;
       };
       osd = {
         enabled = true;
@@ -550,6 +545,7 @@ in
             1
             2
             4
+            3
         ];
         monitors = [ ];
       };
@@ -578,7 +574,12 @@ in
         monitorForColors = "";
       };
       templates = {
-        activeTemplates = [ ];
+        activeTemplates = [
+        {
+          enabled = true;
+          id = "zenBrowser";
+        }
+        ];
         enableUserTheming = false;
       };
       nightLight = {
