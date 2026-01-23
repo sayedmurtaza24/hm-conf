@@ -17,10 +17,12 @@ in
     ./modules/rofi-pass.nix
     ./modules/hyprland.nix
     ./modules/desktop.nix
+
+    # Desktop shell
     ./modules/noctalia.nix
+    # ./modules/dms.nix
 
     # ./caelestia.nix
-    # ./dms.nix
   ];
 
   systemd.user.sessionVariables = {

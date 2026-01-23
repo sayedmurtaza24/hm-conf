@@ -15,14 +15,15 @@
       url = "github:noctalia-dev/noctalia-shell";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    dms = {
+      url = "github:AvengeMedia/DankMaterialShell/stable";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
-    { nixpkgs
-    , stableNixpkgs
-    , home-manager
-    , ...
-    } @ inputs:
+    { nixpkgs , stableNixpkgs , home-manager , ... } @ inputs:
     let
       systems = {
         aarch64-darwin = {
@@ -34,6 +35,7 @@
           file = ./nixos.nix;
           modules = [
             inputs.nix-flatpak.homeManagerModules.nix-flatpak
+            inputs.dms.homeModules.dank-material-shell
           ];
         };
       };
