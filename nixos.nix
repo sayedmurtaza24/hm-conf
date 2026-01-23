@@ -1,7 +1,10 @@
-{ pkgs, pkgsStable, inputs, config, lib, ... }:
+{ pkgs, pkgsStable, inputs, config, ... }:
 let
-  reversal-black = pkgsStable.reversal-icon-theme.override {
-    colorVariants = [ "-black" ];
+  iconTheme = {
+    name = "Reversal-black-dark";
+    pkg = pkgsStable.reversal-icon-theme.override {
+      colorVariants = [ "-black" ];
+    };
   };
 in
 {
@@ -28,7 +31,7 @@ in
   systemd.user.sessionVariables = {
     PATH = "${config.home.profileDirectory}/bin:/run/current-system/sw/bin";
     QT_STYLE_OVERRIDE = "Adwaita-dark";
-    QS_ICON_THEME="Reversal-black";
+    QS_ICON_THEME=iconTheme.name;
   };
 
   home.pointerCursor = {
@@ -41,7 +44,7 @@ in
   };
 
   home.packages = with pkgs; [
-    reversal-black
+    iconTheme.pkg
 
     # command line tools
     nvtopPackages.amd
@@ -94,8 +97,8 @@ in
       package = pkgs.adw-gtk3;
     };
     iconTheme = {
-      name = "Reversal-black";
-      package = reversal-black;
+      name = iconTheme.name;
+      package = iconTheme.pkg;
     };
   };
 
