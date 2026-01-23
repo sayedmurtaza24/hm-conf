@@ -1,6 +1,6 @@
-{ pkgs, inputs, config, lib, ... }:
+{ pkgs, pkgsStable, inputs, config, lib, ... }:
 let
-  reversal-black = pkgs.reversal-icon-theme.override {
+  reversal-black = pkgsStable.reversal-icon-theme.override {
     colorVariants = [ "-black" ];
   };
 in
