@@ -9,7 +9,6 @@
     ./modules/ghostty.nix
     ./modules/zsh.nix
     ./modules/git.nix
-    ./modules/aerospace.nix
     ./modules/lazygit.nix
   ];
 

@@ -9,6 +9,7 @@
 
     ./modules/work.nix
     ./modules/colima.nix
+    ./modules/aerospace.nix
   ];
 
   home.packages = with pkgs; [
