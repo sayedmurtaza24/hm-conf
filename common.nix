@@ -1,5 +1,9 @@
 { pkgs, config, ... }:
 {
+  nix.gc = {
+    automatic = true;
+  };
+
   home.preferXdgDirectories = true;
 
   programs.home-manager.enable = true;
