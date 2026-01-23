@@ -11,6 +11,7 @@
       push.autoSetupRemote = true;
       rebase.autosquash = true;
       rerere.enabled = true;
+      safe.directory = [ "/etc/nixos" "/etc/nix-darwin" ];
     };
   };
 
