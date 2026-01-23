@@ -2,7 +2,6 @@
   programs.ghostty = {
     enable = true;
     enableZshIntegration = true;
-    systemd.enable = (!pkgs.stdenv.isDarwin);
     package = if pkgs.stdenv.isDarwin then pkgs.ghostty-bin else pkgs.ghostty;
 
     settings = lib.mkMerge [
