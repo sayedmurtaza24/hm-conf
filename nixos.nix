@@ -66,6 +66,7 @@ in
     rawtherapee
     showtime
     totem
+    digikam
 
     # extra
     gnome-themes-extra
