@@ -51,7 +51,7 @@ in
     systemd.enable = true;
 
     settings = {
-      settingsVersion = 43;
+      settingsVersion = 44;
       bar = {
         position = "top";
         monitors = [
@@ -350,6 +350,7 @@ in
         showCategories = true;
         iconMode = "tabler";
         showIconBackground = false;
+        enableSettingsSearch = true;
         ignoreMouseInput = false;
         screenshotAnnotationTool = "";
       };
@@ -512,7 +513,7 @@ in
         monitors = [ ];
         location = "top_right";
         overlayLayer = true;
-        backgroundOpacity = 1;
+        backgroundOpacity = 0.6;
         respectExpireTimeout = false;
         lowUrgencyDuration = 3;
         normalUrgencyDuration = 8;
