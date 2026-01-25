@@ -37,6 +37,7 @@
     fd
     ripgrep
     btop
+    proton-vpn-cli
 
     # desktop apps
     bitwarden-desktop
