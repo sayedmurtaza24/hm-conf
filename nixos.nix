@@ -67,6 +67,7 @@ in
     showtime
     totem
     digikam
+    telegram-desktop
 
     # extra
     gnome-themes-extra
