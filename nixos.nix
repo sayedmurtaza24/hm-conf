@@ -55,6 +55,7 @@ in
     bluetui
     impala
     libnotify
+    proton-vpn-cli
 
     # desktop apps
     nautilus
