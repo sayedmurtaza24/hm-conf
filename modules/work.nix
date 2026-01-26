@@ -42,4 +42,12 @@ in
       };
     };
   };
+
+  programs.git.includes.gitlabConfig = {
+    condition = "hasconfig:remote.*.url:git@gitlab.com:trailgames/**";
+    contents = {
+      user.name = "murtaza._";
+      user.email = "murtaza@trail.gg";
+    };
+  };
 }
