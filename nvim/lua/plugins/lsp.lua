@@ -1,43 +1,22 @@
-local servers = {
-  pylsp = {},
-  biome = {},
-  ts_ls = {},
-  eslint = {},
-  lua_ls = {},
-  gopls = {},
-  protols = {},
-  rust_analyzer = {},
-  dartls = {},
-  jsonls = {},
-  zls = {},
-  tailwindcss = {},
-  dart_ls = {},
-  nixd = {},
-}
-
 return {
   "neovim/nvim-lspconfig",
-  lazy = true,
-  event = { "BufEnter", "BufReadPost" },
-  dependencies = {
-    "saghen/blink.cmp",
-    {
-      "williamboman/mason.nvim",
-      config = function()
-        local ensure_installed = { "prettier" }
-        for ls, _ in pairs(servers) do
-          table.insert(ensure_installed, ls)
-        end
-        require("mason").setup({
-          ensure_installed = ensure_installed,
-        })
-      end,
-    },
-  },
   config = function()
-    for ls, _ in pairs(servers) do
-      vim.lsp.enable(ls)
-    end
+    vim.lsp.enable({
+      "pylsp",
+      "biome",
+      "ts_ls",
+      "eslint",
+      "lua_ls",
+      "gopls",
+      "protols",
+      "rust_analyzer",
+      "dartls",
+      "jsonls",
+      "zls",
+      "tailwindcss",
+      "dart_ls",
+      "nixd",
+    })
 
     vim.api.nvim_create_autocmd('LspAttach', {
       callback = function(args)
@@ -45,8 +24,12 @@ return {
         vim.keymap.set("n", "gd", vim.lsp.buf.definition)
         vim.keymap.set("n", "gff", vim.lsp.buf.format)
 
-        vim.keymap.set("n", "]d", vim.diagnostic.goto_next)
-        vim.keymap.set("n", "[d", vim.diagnostic.goto_prev)
+        vim.keymap.set("n", "]d", function()
+          vim.diagnostic.jump({ count = 1, float = true })
+        end)
+        vim.keymap.set("n", "[d", function()
+          vim.diagnostic.jump({ count = -1, float = true })
+        end)
         vim.keymap.set("n", "<leader>dg", function()
           vim.diagnostic.setqflist({
             severity = "ERROR",
