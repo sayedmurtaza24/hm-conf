@@ -10,7 +10,7 @@
   fonts.fontconfig.enable = true;
 
   imports = [
-    ./modules/mise.nix
+    ./modules/mise-direnv.nix
     ./modules/ghostty.nix
     ./modules/zsh.nix
     ./modules/git.nix
