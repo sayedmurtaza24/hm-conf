@@ -10,6 +10,7 @@
   fonts.fontconfig.enable = true;
 
   imports = [
+    ./modules/mise.nix
     ./modules/ghostty.nix
     ./modules/zsh.nix
     ./modules/git.nix
@@ -24,13 +25,13 @@
     lua-language-server
     gopls
     protols
-    zls
+    # zls
     vscode-json-languageserver
     prettier
 
-    # programming languages
-    zig
-    go
+    # zig and go to be managed with mise
+    # go
+    # zig
 
     # command line tools
     curl
