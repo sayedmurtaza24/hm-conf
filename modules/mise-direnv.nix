@@ -2,7 +2,8 @@
   programs.mise = {
     enable = true;
     globalConfig = {
-      tools.go = "1.25.1";
+      tools.go = "1.25";
+      tools.node = "22";
     };
   };
 
