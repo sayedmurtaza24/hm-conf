@@ -4,6 +4,7 @@
     globalConfig = {
       tools.go = "1.25";
       tools.node = "22";
+      tools.superhtml = "0.6";
     };
   };
 

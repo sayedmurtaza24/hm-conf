@@ -16,6 +16,7 @@ return {
       "tailwindcss",
       "dart_ls",
       "nixd",
+      "superhtml",
     })
 
     vim.api.nvim_create_autocmd('LspAttach', {
