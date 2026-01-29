@@ -13,13 +13,12 @@ in
   home.homeDirectory = "/home/murtaza";
 
   imports = [
-    inputs.nix-flatpak.homeManagerModules.nix-flatpak
-
     ./common.nix
 
     ./modules/rofi-pass.nix
     ./modules/hyprland.nix
     ./modules/desktop.nix
+    ./modules/flatpak.nix
 
     # Desktop shell
     ./modules/noctalia.nix
@@ -115,13 +114,6 @@ in
   };
 
   services.cliphist.enable = true;
-  services.flatpak.enable = true;
-  services.flatpak.packages = [
-    { appId = "com.brave.Browser"; origin = "flathub";  }
-    { appId = "com.github.tchx84.Flatseal"; origin = "flathub";  }
-    { appId = "app.zen_browser.zen"; origin = "flathub";  }
-    { appId = "net.nokyan.Resources"; origin = "flathub"; }
-  ];
 
   services.kdeconnect = {
     enable = true;
