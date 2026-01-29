@@ -51,8 +51,9 @@ in
     systemd.enable = true;
 
     settings = {
-      settingsVersion = 44;
+      settingsVersion = 46;
       bar = {
+        barType = "floating";
         position = "top";
         monitors = [
           "DP-3"
@@ -66,6 +67,8 @@ in
         floating = true;
         marginVertical = 5;
         marginHorizontal = 5;
+        frameThickness = 8;
+        frameRadius = 12;
         outerCorners = true;
         exclusive = true;
         hideOnOverview = false;
@@ -97,14 +100,19 @@ in
           {
             characterCount = 2;
             colorizeIcons = false;
+            emptyColor = "secondary";
             enableScrollWheel = true;
+            focusedColor = "primary";
             followFocusedScreen = false;
             groupedBorderOpacity = 1;
             hideUnoccupied = false;
             iconScale = 0.8;
             id = "Workspace";
             labelMode = "index";
+            occupiedColor = "secondary";
+            reverseScroll = false;
             showApplications = false;
+            showBadge = true;
             showLabelsOnlyWhenOccupied = true;
             unfocusedIconsOpacity = 1;
           }
@@ -133,19 +141,13 @@ in
             hideWhenZeroUnread = false;
             id = "NotificationHistory";
             showUnreadBadge = true;
+            unreadBadgeColor = "primary";
           }
           {
             colorName = "primary";
             hideWhenIdle = true;
             id = "AudioVisualizer";
             width = 100;
-          }
-          {
-            defaultSettings = {
-              hideInactive = false;
-              removeMargins = false;
-            };
-            id = "plugin:privacy-indicator";
           }
           ];
           right = [
@@ -213,13 +215,6 @@ in
           }
           {
             defaultSettings = {
-              hideInactive = false;
-              removeMargins = false;
-            };
-            id = "plugin:privacy-indicator";
-          }
-          {
-            defaultSettings = {
               hideBackground = false;
               minimumThreshold = 10;
             };
@@ -255,6 +250,8 @@ in
         telemetryEnabled = false;
         enableLockScreenCountdown = true;
         lockScreenCountdownDuration = 10000;
+        autoStartAuth = false;
+        allowPasswordWithFprintd = false;
       };
       ui = {
         fontDefault = "JetBrainsMono Nerd Font";
@@ -339,6 +336,8 @@ in
         autoPasteClipboard = false;
         enableClipPreview = true;
         clipboardWrapText = true;
+        clipboardWatchTextCommand = "wl-paste --type text --watch cliphist store";
+        clipboardWatchImageCommand = "wl-paste --type image --watch cliphist store";
         position = "center";
         pinnedApps = [ ];
         useApp2Unit = false;
