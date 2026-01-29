@@ -177,7 +177,7 @@
       # Key bindings
       bind = [
         # System controls
-        "CTRL SHIFT, Q, exec, playerctl pause && hyprlock"
+        "SUPER CTRL, Q, exec, $lock"
         "SUPER SHIFT, 4, exec, dms screenshot"
         "SUPER SHIFT, 5, exec, dms screenshot full"
 

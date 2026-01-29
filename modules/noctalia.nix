@@ -18,6 +18,7 @@ in
 
   wayland.windowManager.hyprland.settings = {
     "$menu" = "noctalia-shell ipc call launcher toggle";
+    "$lock" = "${noctalia}/bin/noctalia-shell ipc call lockScreen lock";
   };
 
   services.hypridle = {
