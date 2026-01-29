@@ -7,7 +7,6 @@ in
 {
   home.packages = with pkgs; [
     gdk
-    nodejs_22
     typescript-language-server
     bun
     llvm_21
