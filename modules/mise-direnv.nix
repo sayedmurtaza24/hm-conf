@@ -1,6 +1,9 @@
 {
   programs.mise = {
     enable = true;
+    globalConfig = {
+      tools.go = "1.25.1";
+    };
   };
 
   programs.direnv = {
