@@ -11,7 +11,6 @@
   programs.direnv = {
     enable = true;
     config = {
-      load_dotenv = true;
       strict_env = true;
       hide_env_diff = true;
     };
