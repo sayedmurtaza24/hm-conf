@@ -21,9 +21,9 @@ in
     ./modules/flatpak.nix
 
     # Desktop shell
-    # ./modules/noctalia.nix
+    ./modules/noctalia.nix
     # ./modules/dms.nix
-    ./modules/caelestia.nix
+    # ./modules/caelestia.nix
   ];
 
   systemd.user.sessionVariables = {
