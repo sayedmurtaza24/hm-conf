@@ -57,15 +57,15 @@ in
         monitors = [
           "DP-3"
         ];
-        density = "default";
+        density = "comfortable";
         showOutline = false;
         showCapsule = true;
-        capsuleOpacity = 1;
+        capsuleOpacity = 0.78;
         backgroundOpacity = 0.6;
         useSeparateOpacity = true;
         floating = true;
         marginVertical = 5;
-        marginHorizontal = 3;
+        marginHorizontal = 0;
         frameThickness = 8;
         frameRadius = 12;
         outerCorners = true;
@@ -305,7 +305,7 @@ in
       wallpaper = {
         enabled = true;
         overviewEnabled = false;
-        directory = "/home/murtaza/Pictures/Wallpapers";
+        directory = "/home/murtaza/Downloads";
         monitorDirectories = [ ];
         enableMultiMonitorDirectories = false;
         showHiddenFiles = false;
@@ -629,15 +629,15 @@ in
             showBackground = false;
             useCustomFont = false;
             usePrimaryColor = false;
-            x = 40;
-            y = 80;
+            x = 80;
+            y = 40;
           }
           {
             id = "Weather";
             scale = 1;
             showBackground = false;
-            x = 40;
-            y = 360;
+            x = 80;
+            y = 320;
           }
           ];
         }
