@@ -20,18 +20,4 @@ in
     type = "Application";
     terminal = false;
   };
-
-  xdg.desktopEntries.discord = {
-    name = "Discord";
-    genericName = "Discord app";
-    comment = "Chat with your friends";
-    exec = "${braveCmd} --app=https://discord.com/channels/@me";
-    icon = "${pkgs.fetchurl {
-      url = "https://cdn.prod.website-files.com/6257adef93867e50d84d30e2/66e3d80db9971f10a9757c99_Symbol.svg";
-      sha256 = "sha256-KWKGqhEsRACvjpYZGriI+Bq9S9HV3HKUESpiLvQ1gbE=";
-    }}";
-    categories = [ "Chat" ];
-    type = "Application";
-    terminal = false;
-  };
 }
