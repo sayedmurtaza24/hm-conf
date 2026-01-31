@@ -20,6 +20,11 @@
       url = "github:AvengeMedia/DankMaterialShell/stable";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    caelestia-shell = {
+      url = "github:caelestia-dots/shell";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -36,6 +41,7 @@
           modules = [
             inputs.nix-flatpak.homeManagerModules.nix-flatpak
             inputs.dms.homeModules.dank-material-shell
+            inputs.caelestia-shell.homeManagerModules.default
           ];
         };
       };
