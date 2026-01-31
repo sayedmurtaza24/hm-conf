@@ -79,7 +79,7 @@ in
           {
             icon = "rocket";
             id = "Launcher";
-            usePrimaryColor = false;
+            usePrimaryColor = true;
           }
           {
             compactMode = false;
@@ -130,13 +130,13 @@ in
           ];
           center = [
           {
-            customFont = "";
+            customFont = "Roboto Condensed";
             formatHorizontal = "HH:mm ddd, MMM dd";
-            formatVertical = "HH mm - dd MM";
+            formatVertical = "ddd - dd MMM - h mm AP";
             id = "Clock";
             tooltipFormat = "HH:mm ddd, MMM dd";
             useCustomFont = false;
-            usePrimaryColor = false;
+            usePrimaryColor = true;
           }
           {
             hideWhenZero = false;
@@ -210,10 +210,10 @@ in
           }
           {
             colorizeDistroLogo = false;
-            colorizeSystemIcon = "none";
+            colorizeSystemIcon = "primary";
             customIconPath = "";
-            enableColorization = false;
-            icon = "noctalia";
+            enableColorization = true;
+            icon = "settings-star";
             id = "ControlCenter";
             useDistroLogo = false;
           }
@@ -517,7 +517,7 @@ in
         monitors = [ ];
         location = "top_right";
         overlayLayer = true;
-        backgroundOpacity = 0.6;
+        backgroundOpacity = 1;
         respectExpireTimeout = false;
         lowUrgencyDuration = 3;
         normalUrgencyDuration = 8;
