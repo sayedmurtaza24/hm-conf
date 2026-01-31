@@ -41,6 +41,7 @@
 
     # desktop apps
     bitwarden-desktop
+    proton-pass
   ];
 
   programs.zoxide.enable = true;
