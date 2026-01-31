@@ -12,12 +12,10 @@ in
     inputs.noctalia.homeModules.default
   ];
 
-  home.packages = [ pkgs.matugen ];
-
   programs.hyprshot.enable = true;
 
   wayland.windowManager.hyprland.settings = {
-    "$menu" = "noctalia-shell ipc call launcher toggle";
+    "$menu" = "${noctalia}/bin/noctalia-shell ipc call launcher toggle";
     "$lock" = "${noctalia}/bin/noctalia-shell ipc call lockScreen lock";
   };
 
@@ -55,7 +53,7 @@ in
       settingsVersion = 46;
       bar = {
         barType = "floating";
-        position = "top";
+        position = "left";
         monitors = [
           "DP-3"
         ];
@@ -67,7 +65,7 @@ in
         useSeparateOpacity = true;
         floating = true;
         marginVertical = 5;
-        marginHorizontal = 5;
+        marginHorizontal = 3;
         frameThickness = 8;
         frameRadius = 12;
         outerCorners = true;
@@ -571,8 +569,8 @@ in
         enableDdcSupport = false;
       };
       colorSchemes = {
-        useWallpaperColors = true;
-        predefinedScheme = "Noctalia (default)";
+        useWallpaperColors = false;
+        predefinedScheme = "Peche";
         darkMode = true;
         schedulingMode = "off";
         manualSunrise = "06:30";
@@ -585,6 +583,10 @@ in
         {
           enabled = true;
           id = "zenBrowser";
+        }
+        {
+          enabled = true;
+          id = "gtk";
         }
         ];
         enableUserTheming = false;
