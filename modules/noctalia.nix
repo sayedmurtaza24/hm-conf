@@ -73,6 +73,9 @@ in
         outerCorners = true;
         exclusive = true;
         hideOnOverview = false;
+        displayMode = "always_visible";
+        autoHideDelay = 500;
+        autoShowDelay = 150;
         widgets = {
           left = [
           {
@@ -162,8 +165,10 @@ in
             compactMode = true;
             diskPath = "/";
             id = "SystemMonitor";
+            showCpuFreq = false;
             showCpuTemp = true;
             showCpuUsage = true;
+            showDiskAsFree = false;
             showDiskUsage = false;
             showGpuTemp = false;
             showLoadAverage = false;
@@ -351,6 +356,7 @@ in
         iconMode = "tabler";
         showIconBackground = false;
         enableSettingsSearch = true;
+        enableWindowsSearch = true;
         ignoreMouseInput = false;
         screenshotAnnotationTool = "";
       };
